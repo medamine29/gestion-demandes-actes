@@ -1,10 +1,10 @@
 import express, { Express, Request, Response } from 'express'
 import dotenv from 'dotenv'
-import { SERVER } from './configs/config'
+import { SERVER } from '../src/configs/config'
 import cors from 'cors'
-import { router } from './routes/router'
-import errorHandler from './middlewares/error.middleware'
-import { connectToDatabase, loadModels } from './helpers/db.helper'
+import { router } from '../src/routes/router'
+import errorHandler from '../src/middlewares/error.middleware'
+import { connectToDatabase, loadModels } from '../src/helpers/db.helper'
 import bodyParser from 'body-parser'
 
 dotenv.config()
