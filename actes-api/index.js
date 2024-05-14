@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express'
+import express from 'express'
 import dotenv from 'dotenv'
 import { SERVER } from './src/configs/config'
 import cors from 'cors'
@@ -9,7 +9,7 @@ import bodyParser from 'body-parser'
 
 dotenv.config()
 
-const app: Express = express()
+const app = express()
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -19,7 +19,7 @@ app.use('/', router)
 // Error handler
 app.use(errorHandler)
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
   res.send('Express + TypeScript Server')
 })
 
