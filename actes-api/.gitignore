@@ -8,5 +8,3 @@ tmp
 .env.development
 .env.staging
 .env.production
-
-vercel.json
