@@ -93,8 +93,7 @@ interface ActDetailsProps {
 const ActDetails: React.FC<ActDetailsProps> = ({ actId }) => {
 
   const { 
-    data: actDetails,
-    isFetching: isFetchingActDetails
+    data: actDetails
   } = useFetchActDetailsQuery(actId)
 
   if (!actDetails) return <></>

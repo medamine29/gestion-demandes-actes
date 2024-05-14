@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { Contact } from "../data/interfaces.ts";
 import { FormikHelpers, useFormik } from "formik"
 import TextField from "../components/common/TextField.tsx"
@@ -21,7 +21,7 @@ const ContactForm = () => {
     await sendMessage(validValues)
   }
 
-  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit, setTouched } = useFormik<Partial<Contact>>({
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik<Partial<Contact>>({
     initialValues: {
       firstName: '',
       lastName: '',

@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { ActAddress, BirthInfo, CivilityType } from '../../data/interfaces.ts';
+import { ActAddress, CivilityType } from '../../data/interfaces.ts';
 
 const actAddressInitialState: Partial<ActAddress> = {
   civility: CivilityType.MALE,

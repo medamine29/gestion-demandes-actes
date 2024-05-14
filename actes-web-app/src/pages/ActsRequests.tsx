@@ -38,8 +38,7 @@ const ActsRequests = () => {
   const [deleteAct] = useDeleteActMutation();
 
   const { 
-    data: actsInfo,
-    isFetching: isFetchingActs
+    data: actsInfo
   } = useFetchActsQuery({ page, perPage, showArchived, actType })
 
   const handleArchiveAct = async (id: string) => {

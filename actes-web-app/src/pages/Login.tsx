@@ -32,7 +32,7 @@ const Login = () => {
     
   }
 
-  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit, setTouched } = useFormik<Partial<Admin>>({
+  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik<Partial<Admin>>({
     initialValues: {
       email: '',
       password: ''

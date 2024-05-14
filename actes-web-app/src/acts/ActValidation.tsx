@@ -29,11 +29,11 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
   }
 
   const handleSubmitForm = async (values: TermAgreement, actions: FormikHelpers<TermAgreement>) => {
-    const validValues = values as Required<TermAgreement>
+    // const validValues = values as Required<TermAgreement>
     setOpenModal(true)
   }
 
-  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit, setFieldValue, setFieldTouched } = useFormik<TermAgreement>({
+  const { values, errors, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({
     initialValues: {
       generalTerms: false,
       personalData: false,

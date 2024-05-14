@@ -1,11 +1,8 @@
 import React, { ReactNode, useState } from "react";
-import { useDeleteActMutation, useDeleteMessageMutation, useFetchActsQuery, useFetchMessagesQuery } from "../store/index.ts";
+import { useDeleteMessageMutation, useFetchMessagesQuery } from "../store/index.ts";
 import classNames from "classnames";
-import { ActeType } from "../data/interfaces.ts";
-import { BiSolidMessageRoundedDetail, BiSolidTrash } from "react-icons/bi";
+import { BiSolidTrash } from "react-icons/bi";
 import Pagination from "../components/common/Pagination.tsx";
-import Button from "../components/common/Button.tsx";
-import { Link } from "react-router-dom";
 import { useSnackbar } from 'react-simple-snackbar'
 
 const Messages = () => {
@@ -31,8 +28,7 @@ const Messages = () => {
   const [deleteMessage] = useDeleteMessageMutation();
 
   const { 
-    data: messagesInfo,
-    isFetching: isFetchingMessages
+    data: messagesInfo
   } = useFetchMessagesQuery({ page, perPage, showArchived })
 
   const handleArchiveMessage = async (id: string) => {

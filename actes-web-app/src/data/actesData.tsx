@@ -1,4 +1,4 @@
-import { ActFormat, Acte, ActeType, Category, CivilityType, Model, RadioOption, Relationship } from "./interfaces.ts"
+import { Acte, ActeType, Category, CivilityType, Model, RadioOption, Relationship } from "./interfaces.ts"
 import { FaFileWaveform } from "react-icons/fa6";
 import { GiLovers } from "react-icons/gi";
 import { FaBirthdayCake } from "react-icons/fa";

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { setMarriageInfo, useFetchCountriesQuery, useTypedDispatch, useTypedSelector } from "../store/index.ts";
 import { FormikHelpers, useFormik } from "formik";
 import { MarriageInfo } from "../data/interfaces.ts";

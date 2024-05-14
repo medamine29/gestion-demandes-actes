@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// TODO : remove this
-const pause = (duration: number): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, duration));
-};
-
 const territoryApi = createApi({
   reducerPath: 'territories',
   baseQuery: fetchBaseQuery({

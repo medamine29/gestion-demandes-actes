@@ -1,13 +1,6 @@
 // React Related Imports
 import ReactDOM from "react-dom";
 import React, { ReactNode, useEffect } from "react";
-import useWindowDimensions from "../../hooks/useWindowDimensions.ts"
-import { useTypedDispatch } from "../../store/index.ts";
-
-// Third-Party Libraries
-import { IoIosClose } from "react-icons/io";
-import classNames from "classnames";
-
 interface ModalProps {
   children: ReactNode;
   actionBar?: ReactNode;
