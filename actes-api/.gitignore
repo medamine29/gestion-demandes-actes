@@ -1,0 +1,12 @@
+build
+node_modules
+tmp
+.DS_Store
+.vscode
+.env
+.env.local
+.env.development
+.env.staging
+.env.production
+
+vercel.json
