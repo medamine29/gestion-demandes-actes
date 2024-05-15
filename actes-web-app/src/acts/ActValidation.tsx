@@ -17,48 +17,6 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
 
   const [openModal, setOpenModal] = useState<boolean>(false)
 
-  const [addAct] = useAddActMutation();
-  const [openSnackbar] = useSnackbar()
-  const navigate = useNavigate()
-
-  const successSnackBarContent: ReactNode = (
-    <div className="underline decoration-green-600">
-      Demande enregistrée avec succès
-    </div>
-  )
-
-  const failureSnackBarContent: ReactNode = (
-    <div className="underline decoration-red-700">
-      une erreur s'est produite
-    </div>
-  )
-
-  const { marriageInfo, birthInfo, deathInfo, actAddressInfo } = useTypedSelector(
-    (state) => ({ 
-      marriageInfo: state.marriageAct, 
-      birthInfo: state.birthAct, 
-      deathInfo: state.deathAct, 
-      actAddressInfo: state.actAddress, 
-      actType: state.auth.actType 
-    })
-  )
-
-  const handleAddAct = async () => {
-    if (actType && actAddressInfo) {
-      let requestBody: AddAct = { actType, actAddressInfo: actAddressInfo as Required<ActAddress> }
-      if (actType === ActeType.BIRTH) requestBody.birthInfo = birthInfo as Required<BirthInfo>
-      else if (actType === ActeType.DEATH) requestBody.deathInfo = deathInfo as Required<DeathInfo>
-      else if (actType === ActeType.MARRIAGE) requestBody.marriageInfo = marriageInfo as Required<MarriageInfo>
-      try {
-        await addAct(requestBody).unwrap()
-        openSnackbar(successSnackBarContent, 2500)
-      } catch (error) {
-        openSnackbar(failureSnackBarContent, 2500)
-      }
-      
-    }
-  }
-
   const actType: ActeType | undefined = useTypedSelector((state) => state.auth.actType)
   const { birthAct, marriageAct, deathAct, actAddress} = useTypedSelector(({ birthAct, marriageAct, deathAct, actAddress }) => ({ birthAct, marriageAct, deathAct, actAddress }))
   let validationsComponent: ReactNode = <div></div>
@@ -72,10 +30,8 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
   }
 
   const handleSubmitForm = async (values: TermAgreement, actions: FormikHelpers<TermAgreement>) => {
-    // const validValues = values as Required<TermAgreement>
-    //  setOpenModal(true)
-    await handleAddAct()
-    navigate('/');
+    const validValues = values as Required<TermAgreement>
+     setOpenModal(true)
   }
 
   const { values, errors, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({
