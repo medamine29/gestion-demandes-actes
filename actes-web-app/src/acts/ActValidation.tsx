@@ -1,14 +1,12 @@
 import React, { ReactNode, useState } from "react";
-import { useAddActMutation, useTypedSelector } from "../store/index.ts";
-import { ActAddress, ActeType, AddAct, BirthInfo, DeathInfo, MarriageInfo, TermAgreement } from "../data/interfaces.ts";
+import { useTypedSelector } from "../store/index.ts";
+import { ActeType, TermAgreement } from "../data/interfaces.ts";
 import { getBirthActValidationsComponent, getDeathActValidationsComponent, getMarriageActValidationsComponent } from "../data/helpers.tsx";
 import Button from "../../src/components/common/Button.tsx"
 import CheckBox from "../components/common/CheckBox.tsx";
 import { FormikHelpers, useFormik } from "formik";
 import { termAgreementSchema } from "../data/validations.tsx";
 import PaiementMethod from "../components/actes/PaiementMethod.tsx";
-import { useSnackbar } from 'react-simple-snackbar'
-import { useNavigate } from "react-router-dom";
 interface ActValidationProps {
   setActiveStep: (step: number) => void;
 }
