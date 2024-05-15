@@ -34,7 +34,7 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
     })
   )
   const inputLabelClasses = classNames('font-semibold')
-  const inputClasses = classNames('bg-transparent text-gray-700 focus:outline-none')
+  const inputClasses = classNames('w-full bg-transparent text-gray-700 focus:outline-none mr-8')
   const errorMessageClasses = classNames('text-sm text-red-700')
 
   return (  

@@ -45,13 +45,13 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
     <div className="flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch p-2"
+        className="w-full flex flex-col gap-1 items-center p-1"
       >
 
-      <div className="col-span-2">
+      <div className="w-full">
         <DateInput
           id="marriageDate"
-          label="Date du mariage"
+          label="Date de mariage"
           value={values.marriageDate || ''}
           errors={errors}
           touched={touched}
@@ -59,35 +59,38 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
           setFieldTouched={setFieldTouched}
         />
       </div>
-        
-      <Dropdown
-        id="country"
-        options={countries}
-        value={values.country || ''} 
-        label="Pays"
-        isFetching={isFetchingCountries}
-        placeholder="Sélectionner un pays"
-        touched={touched}
-        errors={errors}
-        setFieldValue={setFieldValue}
-        setFieldTouched={setFieldTouched}
-      />
 
-      <SearchBar
-        id="marriagePlace"
-        value={values.marriagePlace || ''}
-        touched={touched}
-        errors={errors}
-        label="Commune du mariage"
-        placeholder="Sélectionner une commune"
-        setFieldValue={setFieldValue}
-        setFieldTouched={setFieldTouched}
-        labelIcon={TbMapPinSearch}
-      />
+      <div className="flex flex-col md:flex-row gap-1 w-full">
+        <Dropdown
+          id="country"
+          options={countries}
+          value={values.country || ''} 
+          label="Pays"
+          isFetching={isFetchingCountries}
+          placeholder="Sélectionner un pays"
+          touched={touched}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+          className="w-full"
+        />
 
-      <div className="col-span-2 w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded">
+        <SearchBar
+          id="marriagePlace"
+          value={values.marriagePlace || ''}
+          touched={touched}
+          errors={errors}
+          label="Commune du mariage"
+          placeholder="Sélectionner une commune"
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+          labelIcon={TbMapPinSearch}
+        />
+      </div>
+
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
         
-        <div className="col-span-2 p-2 border-b font-semibold">
+        <div className="col-span-1 md:col-span-2 p-2 border-b font-semibold">
           Identité de la 1ère personne faisant l'objet de la demande
         </div>
         
@@ -138,7 +141,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
           labelIcon={CgProfile}
         />
 
-        <div className="col-span-2">
+        <div className="col-span-1 md:col-span-2">
           <DateInput
             id="firstPerson.birthDate"
             label="Date de naissance"
@@ -224,10 +227,10 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
         
       </div>
 
-      <div className="col-span-2 w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
         
-        <div className="col-span-2 p-2 border-b font-semibold">
-          Identité de la 2éme personne faisant l'objet de la demande
+        <div className="col-span-1 md:col-span-2 p-2 border-b font-semibold">
+          Identité de la 2ème personne faisant l'objet de la demande
         </div>
         
         <RadioGroup 
@@ -277,7 +280,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
           labelIcon={CgProfile}
         />
 
-        <div className="col-span-2">
+        <div className="col-span-1 md:col-span-2">
           <DateInput
             id="secondPerson.birthDate"
             label="Date de naissance"
