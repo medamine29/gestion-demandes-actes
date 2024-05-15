@@ -65,7 +65,7 @@ const ActsRequests = () => {
             checked={showArchived}
             onChange={(e) => { setShowArchived(!showArchived) }}
           />
-          <span className="slider"> afficher les demandes archivés </span>
+          <span className="slider"> afficher les demandes archivées </span>
         </label>
         <div className="flex">
           <Button

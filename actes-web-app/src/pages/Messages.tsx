@@ -55,7 +55,7 @@ const Messages = () => {
             checked={showArchived}
             onChange={(e) => { setShowArchived(!showArchived) }}
           />
-          <span className="slider"> afficher les messages archivés </span>
+          <span className="slider"> afficher les messages archivées </span>
         </label>
       </div>
       <table className="table-fixed w-full rounded-xl"
