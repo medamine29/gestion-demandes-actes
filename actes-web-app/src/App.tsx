@@ -35,7 +35,7 @@ const App: React.FC<{}> = () => {
         <Route path="/mentions-légales" element={<LegalNotice />} />
         <Route path="/démarche" element={<Steps />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<ProtectedRoute Element={Dashboard} />} />
+        <Route path="/dashboard" element={<ProtectedRoute Element={Dashboard} redirectTo="/login" />} />
         <Route path="/actes" element={<ProtectedRoute Element={ActsRequests} />} />
         <Route path="/messages" element={<ProtectedRoute Element={Messages} />} />
         <Route path="/actes/:actId" element={<ProtectedRoute Element={ActDetails} />} />
