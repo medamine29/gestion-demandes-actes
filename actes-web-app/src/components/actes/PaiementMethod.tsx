@@ -1,9 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import Modal from "../common/Modal.tsx";
 import { FaChevronRight } from "react-icons/fa";
 import { useAddActMutation, useTypedSelector } from "../../store/index.ts";
 import { ActAddress, ActeType, AddAct, BirthInfo, DeathInfo, MarriageInfo } from "../../data/interfaces.ts";
 import { useSnackbar } from 'react-simple-snackbar'
+import Checkout from "../paiement/Checkout.tsx";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 interface PaiementMethodProps {
   onClose: () => void;
@@ -13,6 +15,14 @@ const PaiementMethod: React.FC<PaiementMethodProps> = ({ onClose }) => {
 
   const [addAct] = useAddActMutation();
   const [openSnackbar] = useSnackbar()
+  const [showPaypal, setShowPaypal] = useState<boolean>(false)
+
+  const initialOptions = {
+    clientId: "AZ0fEfRHaATtpmX-o2EZtQiS82Cb4boTafPvBBTOakFCL8Ezt4x9aLHxQ_3CSD6LXBERbYcsMAw_7Xuo",
+    currency: "EUR",
+    intent: "capture",
+  };
+  
 
   const successSnackBarContent: ReactNode = (
     <div className="underline decoration-green-600">
@@ -71,7 +81,7 @@ const PaiementMethod: React.FC<PaiementMethodProps> = ({ onClose }) => {
       </div>
       <div 
         className="flex bg-gray-300 rounded p-2 items-center justify-between cursor-pointer"
-        onClick={handleAddAct}
+        onClick={() => { setShowPaypal(true) }}
       >
         <div className="flex gap-2 items-center">
           <img
@@ -82,6 +92,11 @@ const PaiementMethod: React.FC<PaiementMethodProps> = ({ onClose }) => {
         </div>
         <FaChevronRight />
       </div>
+      { showPaypal && (
+        <PayPalScriptProvider options={initialOptions}>
+          <Checkout/>
+        </PayPalScriptProvider>
+      ) }
     </div>
   )
 

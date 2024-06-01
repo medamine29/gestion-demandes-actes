@@ -1,5 +1,7 @@
 import React from "react"
 import ActesList from "../components/actes/ActesList.tsx"
+import Checkout from "../components/paiement/Checkout.tsx"
+import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 
 const Home: React.FC<{}> = () => {
 
@@ -32,6 +34,24 @@ const Home: React.FC<{}> = () => {
           Gagnez un temps précieux et simplifiez vos démarches administratives avec notre plateforme de commande en ligne <a href="/" className="underline"> assistance-etats-civils.fr</a>
         </div>
       </div>
+    </div>
+  )
+}
+
+const Homee = () => {
+
+  const initialOptions = {
+    clientId: "AZ0fEfRHaATtpmX-o2EZtQiS82Cb4boTafPvBBTOakFCL8Ezt4x9aLHxQ_3CSD6LXBERbYcsMAw_7Xuo",
+    currency: "EUR",
+    intent: "capture",
+    disableFunding: "card"
+  };
+
+  return (
+    <div className="flex flex-col">
+      <PayPalScriptProvider options={initialOptions}>
+        <Checkout/>
+      </PayPalScriptProvider>
     </div>
   )
 }

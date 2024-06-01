@@ -80,9 +80,9 @@ export const birthAddressSchema = yup.object().shape({
 })
 
 export const termAgreementSchema = yup.object().shape({
-  generalTerms: yup.boolean().oneOf([true], "Veuillez aggréer à ce terme").required("Ce champs est requis"),
-  personalData: yup.boolean().oneOf([true], "Veuillez aggréer à ce terme").required("Ce champs est requis"),
-  application: yup.boolean().oneOf([true], "Veuillez aggréer à ce terme").required("Ce champs est requis")
+  generalTerms: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus"),
+  personalData: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus"),
+  application: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus")
 })
 
 const personSchema = yup.object({

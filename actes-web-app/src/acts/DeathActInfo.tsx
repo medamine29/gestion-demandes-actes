@@ -108,7 +108,7 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
           value={values.deathPlace || ''}
           touched={touched}
           errors={errors}
-          label="Commune de décès"
+          label="Lieu de décès"
           placeholder="Sélectionner une commune"
           setFieldValue={setFieldValue}
           setFieldTouched={setFieldTouched}
