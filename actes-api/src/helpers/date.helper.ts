@@ -14,7 +14,7 @@ export const formatDate = (dateString: string): string => {
   const formattedDate = date.toLocaleDateString('fr-FR', options);
 
   return formattedDate
-};
+}
 
 export const formatDateShort = (dateString: string): string => {
   const date = new Date(dateString);

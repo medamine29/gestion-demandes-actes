@@ -8,10 +8,18 @@ const phoneNumberRegex = /^0\d(\s?\d{2}){4}$/;
 
 export const birthFormSchema = yup.object().shape({
   civility: yup.string().oneOf(Object.values(CivilityType), "Veuillez renseigner une civilité valide").required("Ce champs est requis"),
-  birthDate: yup.string().test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
-    if (!value) return false
-    return new Date(value) < nowDate
-  }).required("Ce champs est requis"),
+  birthDate: yup.string()
+    .test("isDate-check", "Veuillez renseigner une date valide", (value) => {
+      if (!value) return false
+      const valueAsDate = new Date(value)
+      if (valueAsDate instanceof Date && !isNaN(valueAsDate.getTime())) return true
+      return false;
+    })
+    .test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
+      if (!value) return false
+      return new Date(value) < nowDate
+    })
+    .required("Ce champs est requis"),
   lastName: yup.string().min(2, "Le nom est trop court")
     .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")
     .required("Ce champs est requis"),
@@ -95,10 +103,18 @@ const personSchema = yup.object({
   firstName: yup.string().min(2, "Le prénom est trop court")
     .matches(alphabeticalRegex, "Le prénom ne peut contenir que des lettres")
     .required("Ce champs est requis"),
-  birthDate: yup.string().test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
+  birthDate: yup.string()
+    .test("isDate-check", "Veuillez renseigner une date valide", (value) => {
+      if (!value) return false
+      const valueAsDate = new Date(value)
+      if (valueAsDate instanceof Date && !isNaN(valueAsDate.getTime())) return true
+      return false;
+    })
+    .test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
       if (!value) return false
       return new Date(value) < nowDate
-    }).required("Ce champs est requis"),
+    })
+    .required("Ce champs est requis"),
   unknownFather: yup.boolean().required("Ce champs est requis"),
   fathersFirstName: yup.string().min(2, "Le prénom est trop court")
     .matches(alphabeticalRegex, "Le prénom ne peut contenir que des lettres")
@@ -137,10 +153,18 @@ const personSchema = yup.object({
 })
 
 export const marriageFormSchema = yup.object().shape({
-  marriageDate: yup.string().test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
-    if (!value) return false
-    return new Date(value) < nowDate
-  }).required("Ce champs est requis"),
+  marriageDate: yup.string()
+    .test("isDate-check", "Veuillez renseigner une date valide", (value) => {
+      if (!value) return false
+      const valueAsDate = new Date(value)
+      if (valueAsDate instanceof Date && !isNaN(valueAsDate.getTime())) return true
+      return false;
+    })
+    .test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
+      if (!value) return false
+      return new Date(value) < nowDate
+    })
+    .required("Ce champs est requis"),
   country: yup.string().required("Ce champs est requis"),
   marriagePlace: yup.string().min(2, "Le prénom est trop court")
     .required("Ce champs est requis"),
@@ -158,19 +182,27 @@ export const deathFormSchema = yup.object().shape({
     .required("Ce champs est requis"),
   country: yup.string().required("Ce champs est requis"),
   deathPlace: yup.string().min(2,"Veuillez sélectionner une commune").required("Ce champs est requis"),
-  deathDate: yup.string().test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
-    if (!value) return false
-    return new Date(value) < nowDate
-  }).required("Ce champs est requis")
+  deathDate: yup.string()
+    .test("isDate-check", "Veuillez renseigner une date valide", (value) => {
+      if (!value) return false
+      const valueAsDate = new Date(value)
+      if (valueAsDate instanceof Date && !isNaN(valueAsDate.getTime())) return true
+      return false;
+    })
+    .test("birthDate-check", "Veuillez renseigner une date antérieur à la date de ce jour", (value) => {
+      if (!value) return false
+      return new Date(value) < nowDate
+    })
+    .required("Ce champs est requis")
 })
 
 export const contactFormSchema = yup.object().shape({
   firstName: yup.string().min(2, "Le prénom est trop court")
-  .matches(alphabeticalRegex, "Le prénom ne peut contenir que des lettres")
-  .required("Ce champs est requis"),
+    .matches(alphabeticalRegex, "Le prénom ne peut contenir que des lettres")
+    .required("Ce champs est requis"),
   lastName: yup.string().min(2, "Le nom est trop court")
-  .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")
-  .required("Ce champs est requis"),
+    .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")
+    .required("Ce champs est requis"),
   phone: yup.string().matches(phoneNumberRegex, "Veuillez renseigner un numéro valide").required("Ce champs est requis"),
   email: yup.string().email("Veuillez renseigner un email valide").required("Ce champs est requis"),
   content: yup.string().max(500, "Ce champs ne peut pas dépasser 500 charactéres")
