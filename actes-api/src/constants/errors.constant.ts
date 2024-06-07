@@ -34,6 +34,12 @@ const ERRORS = {
       code: 'act_not_found',
       message: "demande d'acte introuvable"
     },
+  },
+  MUNICIPALITY_ERRORS: {
+    MUNICIPALITY_NOT_FOUND: {
+      code: 'municipality_not_found',
+      message: "mairie introuvable"
+    },
   }
 }
 
@@ -41,5 +47,6 @@ export const {
   DB_ERRORS,
   SERVER_ERRORS,
   AUTH_ERRORS,
-  ACT_ERRORS
+  ACT_ERRORS,
+  MUNICIPALITY_ERRORS
 } = ERRORS

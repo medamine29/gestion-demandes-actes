@@ -12,6 +12,10 @@ const ModelName = {
   ADMIN: {
     model: 'Admin',
     collection: 'admins'
+  },
+  MUNICIPALITY: {
+    model: 'Municipality',
+    collection: 'municipalities'
   }
 }
 
@@ -37,5 +41,6 @@ export const defaultSchemaOptions: SchemaOptions = {
 export const {
   ACT,
   MESSAGE,
-  ADMIN
+  ADMIN,
+  MUNICIPALITY
 } = ModelName

@@ -21,4 +21,5 @@ export function loadModels() {
   require('./../models/act.model')
   require('./../models/message.model')
   require('./../models/admin.model')
+  require('./../models/municipality.model')
 }
