@@ -14,7 +14,7 @@ class TerritoryService {
     }
 
     formattedCountries.sort()
-    formattedCountries.unshift("France")
+    formattedCountries.unshift("France/DOM TOM")
 
     return formattedCountries
   }

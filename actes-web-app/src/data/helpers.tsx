@@ -3,10 +3,7 @@ import { ActAddress, ActFormat, BirthInfo, CivilityType, DeathInfo, MarriageInfo
 
 export const getActTypeOptionsByRelationship = (relationship?: Relationship): ActFormat[] => {
   if (relationship === Relationship.OTHER) return [ ActFormat.EXTRACT_WITHOUT_FILIATION ]
-  
-  if (relationship === Relationship.HEIR) return  [ ActFormat.EXTRACT_WITH_FILIATION, ActFormat.EXTRAIT_PLURILINGUE ]
-
-  return [ ActFormat.INTEGRAL_COPY, ActFormat.EXTRACT_WITH_FILIATION, ActFormat.EXTRAIT_PLURILINGUE ]
+  return [ ActFormat.INTEGRAL_COPY, ActFormat.EXTRACT_WITH_FILIATION, ActFormat.EXTRACT_WITHOUT_FILIATION, ActFormat.EXTRAIT_PLURILINGUE ]
 }
 
 export const getBirthActValidationsComponent = (birthInfo: Partial<BirthInfo>, actAddress: Partial<ActAddress>): ReactNode => {

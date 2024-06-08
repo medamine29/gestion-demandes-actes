@@ -47,12 +47,12 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
   return (  
     <div>
       <div 
-        className="flex flex-col border border-gray-300 rounded cursor-pointer hover:-translate-y-2"
+        className="flex flex-col border border-orange-500 rounded cursor-pointer hover:-translate-y-2"
         onClick={() => { setActiveStep(1) }}
       >
         { validationsComponent }
         <Button
-          className="justify-center p-2 text-green-900 font-semibold border-0"
+          className="justify-center p-3 text-green-900 font-semibold border-0 text-lg underline decoration-orange-700"
         >
           MODIFIER
         </Button>
@@ -90,12 +90,12 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
         />
 
         <Button
-          className="w-full justify-center py-2 px-8 bg-green-900 rounded text-white"
+          className="w-full justify-center py-3 px-8 bg-green-900 rounded text-white text-lg font-semibold underline decoration-orange-700"
           disabled={isSubmitting}
           type="submit"
           onClick={handleSubmit}
         >
-          Continuer
+          VALIDER LA DEMANDE
         </Button>
       </form>
 
