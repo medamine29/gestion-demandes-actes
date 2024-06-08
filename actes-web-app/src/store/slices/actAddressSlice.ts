@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { ActAddress, CivilityType } from '../../data/interfaces.ts';
+import { ActAddress, CivilityType, RequestReason } from '../../data/interfaces.ts';
 
 const actAddressInitialState: Partial<ActAddress> = {
   civility: CivilityType.MALE,
@@ -32,7 +32,7 @@ export const actAddressSlice = createSlice({
 export const actAddressReducer = persistReducer({
   key: 'rtk:actAddress',
   storage,
-  whitelist: ['civility', 'firstName', 'lastName', 'country', 'address', 'postalCode', 'city', 'email', 'validateEmail', 'phone', 'relationship', 'actFormat']
+  whitelist: ['civility', 'firstName', 'lastName', 'country', 'address', 'postalCode', 'city', 'email', 'validateEmail', 'phone', 'relationship', 'actFormat', 'copiesCount', 'requestReason']
 }, actAddressSlice.reducer);
 
 export const { setActAddress } = actAddressSlice.actions;

@@ -30,6 +30,20 @@ export enum ActFormat {
   EXTRAIT_PLURILINGUE = "Extrait plurilingue"
 }
 
+export enum RequestReason {
+  MARRIAGE_FILE = "constitution d'un dossier de mariage",
+  ID = "carte nationale d'identité",
+  PASSPORT = "Passeport",
+  SUCCSSION = "succesion",
+  SOCIAL_SECURITY_BENEFITS = "Prestations sociales",
+  RETIREMENT = "retraite",
+  PACS = "Constitution d'un dossier de PACS",
+  GENEALOGY = "Généalogie (Acte de naissance à partir de 1922)",
+  NATIONALITY_CERTIFICATE = "Certificat de nationalité française",
+  LITIGATION = "contentieux",
+  PENSION = "Pension",
+  OTHER = "autre"
+}
 export interface Acte {
   label: string,
   type: ActeType,
@@ -70,6 +84,8 @@ export interface ActAddress {
   civility: CivilityType,
   relationship: Relationship,
   actFormat: ActFormat,
+  requestReason: RequestReason,
+  copiesCount: string,
   firstName: string,
   lastName: string,
   country: string,

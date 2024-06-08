@@ -30,7 +30,6 @@ const DateInput: React.FC<DateInputProps<any>> = ({ id, label, value, errors, to
 
   useEffect(() => {
     if (fieldsTouched.date && fieldsTouched.month && fieldsTouched.year) {
-      console.log("hello !")
       setFieldTouched(id, true)
       setFieldValue(id, `${month}/${date}/${year}`)
     }

@@ -1,6 +1,6 @@
 import Joi from 'joi'
 import { RequestValidationSchemas } from '../validations'
-import { ActFormat, ActType, Relationship } from '../models/act.model'
+import { ActFormat, ActType, Relationship, RequestReason } from '../models/act.model'
 import { Civility, frenchPhoneNumberRegex, frenchPostalCodeRegex } from '../constants/global.constant'
 import { isMongoId } from './helper.validation'
 
@@ -51,7 +51,9 @@ export const addActSchema: RequestValidationSchemas = {
       postalCode: Joi.string().regex(frenchPostalCodeRegex).required().trim(),
       city: Joi.string().required().trim(),
       email: Joi.string().email().required().trim(),
-      phone: Joi.string().regex(frenchPhoneNumberRegex).required().trim()
+      phone: Joi.string().regex(frenchPhoneNumberRegex).required().trim(),
+      copiesCount: Joi.string().required(),
+      requestReason: Joi.string().valid(...Object.values(RequestReason)).required(),
     }),
     birthInfo: Joi.object().keys({
       civility: Joi.string().valid(...Object.values(Civility)).required(),

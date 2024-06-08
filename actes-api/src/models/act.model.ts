@@ -70,6 +70,21 @@ export enum Relationship {
   OTHER = "Autre"
 }
 
+export enum RequestReason {
+  MARRIAGE_FILE = "constitution d'un dossier de mariage",
+  ID = "carte nationale d'identité",
+  PASSPORT = "Passeport",
+  SUCCSSION = "succesion",
+  SOCIAL_SECURITY_BENEFITS = "Prestations sociales",
+  RETIREMENT = "retraite",
+  PACS = "Constitution d'un dossier de PACS",
+  GENEALOGY = "Généalogie (Acte de naissance à partir de 1922)",
+  NATIONALITY_CERTIFICATE = "Certificat de nationalité française",
+  LITIGATION = "contentieux",
+  PENSION = "Pension",
+  OTHER = "autre"
+}
+
 export enum ActFormat {
   INTEGRAL_COPY = "Copie intégrale",
   EXTRACT_WITH_FILIATION = "Extrait avec filiation",
@@ -80,7 +95,9 @@ export enum ActFormat {
 export interface ActAddressInfo {
   civility: Civility,
   relationship: Relationship,
+  requestReason: RequestReason,
   actFormat: ActFormat,
+  copiesCount: string,
   firstName: string,
   lastName: string,
   country: string,
@@ -179,6 +196,16 @@ const actSchema = new Schema<IAct>(
         type: String,
         enum: Object.values(ActFormat),
         required: true
+      },
+      requestReason: {
+        type: String,
+        enum: Object.values(RequestReason),
+        required: true
+      },
+      copiesCount: {
+        type: String,
+        required: true,
+        trim: true,
       },
       firstName: {
         type: String,

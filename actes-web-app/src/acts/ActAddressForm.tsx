@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FormikHelpers, useFormik } from "formik";
 import { ActAddress } from "../data/interfaces.ts"
 import { birthAddressSchema } from "../data/validations.tsx";
@@ -7,7 +7,7 @@ import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import Button from "../components/common/Button.tsx";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, relationshipOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
 import Dropdown from "../components/common/DropDown.tsx";
 import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
 import { GiMailbox } from "react-icons/gi";
@@ -35,11 +35,19 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
     setActiveStep(2)
   }
 
+
   const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit, setFieldValue, setFieldTouched } = useFormik<Partial<ActAddress>>({
     initialValues: initialBirthAddress,
     validationSchema: birthAddressSchema,
     onSubmit: handleSubmitForm
   })
+
+
+  useEffect(() => {
+    console.log(errors, touched);
+    
+  }, [errors])
+
 
   return (  
     <div className="flex flex-col items-center gap-2">
@@ -86,6 +94,30 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
           value={values.actFormat}
           label="Type d'acte demandé"
           placeholder="Sélectionner le type d'acte"
+          touched={touched}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+        />
+
+        <Dropdown
+          id="requestReason"
+          options={requestReasonOptions}
+          value={values.requestReason}
+          label="Motif de la demande"
+          placeholder="Sélectionner le motif de la demande"
+          touched={touched}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+        />
+
+        <Dropdown
+          id="copiesCount"
+          options={["1", "2", "3", "4", "5"]}
+          value={values.copiesCount}
+          label="Nombre d'exemplaires"
+          placeholder="Sélectionner le nombre d'exemplaires"
           touched={touched}
           errors={errors}
           setFieldValue={setFieldValue}

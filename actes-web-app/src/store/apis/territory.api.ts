@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const territoryApi = createApi({
   reducerPath: 'territories',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.REACT_APP_API_URL}/territories`,
+    baseUrl: `${process.env.REACT_APP_API_URL}`,
     // TODO : remove this
     // fetchFn: async (...args) => {
     //   await pause(1500);
@@ -17,7 +17,7 @@ const territoryApi = createApi({
       fetchCountries: builder.query<string[], void>({
         query: () => {
           return {
-            url: '/countries',
+            url: '/territories/countries',
             method: 'GET',
           };
         },

@@ -1,5 +1,5 @@
 import * as yup from "yup"
-import { ActFormat, CivilityType, Relationship } from "./interfaces.ts"
+import { ActFormat, CivilityType, Relationship, RequestReason } from "./interfaces.ts"
 
 const nowDate = new Date()
 const alphabeticalRegex = /^[A-Za-z\s]+$/;
@@ -68,6 +68,8 @@ export const birthFormSchema = yup.object().shape({
 export const birthAddressSchema = yup.object().shape({
   civility: yup.string().oneOf(Object.values(CivilityType), "Veuillez renseigner une civilité valide").required("Ce champs est requis"),
   relationship: yup.string().oneOf(Object.values(Relationship), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
+  requestReason: yup.string().oneOf(Object.values(RequestReason), "Veuillez renseigner un motif valide").required("Ce champs est requis"),
+  copiesCount: yup.string().required("Ce champs est requis"),
   actFormat: yup.string().oneOf(Object.values(ActFormat), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
   lastName: yup.string().min(2, "Le nom est trop court")
     .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")

@@ -1,4 +1,4 @@
-import { Acte, ActeType, Category, CivilityType, Model, RadioOption, Relationship } from "./interfaces.ts"
+import { Acte, ActeType, Category, CivilityType, Model, RadioOption, Relationship, RequestReason } from "./interfaces.ts"
 import { FaFileWaveform } from "react-icons/fa6";
 import { GiLovers } from "react-icons/gi";
 import { FaBirthdayCake } from "react-icons/fa";
@@ -65,4 +65,19 @@ export const relationshipOptions: Relationship[] = [
   Relationship.LEGAL_REPRESENTANT,
   Relationship.HEIR,
   Relationship.OTHER,
+]
+
+export const requestReasonOptions: RequestReason[] = [
+  RequestReason.MARRIAGE_FILE,
+  RequestReason.ID,
+  RequestReason.PASSPORT,
+  RequestReason.SUCCSSION,
+  RequestReason.SOCIAL_SECURITY_BENEFITS,
+  RequestReason.RETIREMENT,
+  RequestReason.PACS,
+  RequestReason.GENEALOGY,
+  RequestReason.NATIONALITY_CERTIFICATE,
+  RequestReason.LITIGATION,
+  RequestReason.PENSION,
+  RequestReason.OTHER
 ]
