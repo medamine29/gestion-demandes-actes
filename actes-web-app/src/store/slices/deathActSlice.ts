@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { DeathInfo, CivilityType } from '../../data/interfaces.ts';
+import { actApi } from '../apis/act.api.ts';
 
 const deathInfoInitialState: Partial<DeathInfo> = {
   civility: CivilityType.MALE,
@@ -21,7 +22,12 @@ export const deathActSlice = createSlice({
     }
   },
   extraReducers(builder) {
-
+    builder.addMatcher(
+      actApi.endpoints.addAct.matchFulfilled,
+      (state, action) => {
+        return deathInfoInitialState;
+      }
+    );
   }
 });
 

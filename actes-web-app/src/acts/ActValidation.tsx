@@ -1,12 +1,13 @@
 import React, { ReactNode, useState } from "react";
-import { useTypedSelector } from "../store/index.ts";
-import { ActeType, TermAgreement } from "../data/interfaces.ts";
+import { useAddActMutation, useTypedSelector } from "../store/index.ts";
+import { ActAddress, ActeType, AddAct, BirthInfo, DeathInfo, MarriageInfo, TermAgreement } from "../data/interfaces.ts";
 import { getBirthActValidationsComponent, getDeathActValidationsComponent, getMarriageActValidationsComponent } from "../data/helpers.tsx";
 import Button from "../../src/components/common/Button.tsx"
 import CheckBox from "../components/common/CheckBox.tsx";
 import { FormikHelpers, useFormik } from "formik";
 import { termAgreementSchema } from "../data/validations.tsx";
 import PaiementMethod from "../components/actes/PaiementMethod.tsx";
+import { useSnackbar } from 'react-simple-snackbar'
 interface ActValidationProps {
   setActiveStep: (step: number) => void;
 }
@@ -27,9 +28,51 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
     validationsComponent = getDeathActValidationsComponent(deathAct, actAddress)
   }
 
+  
+  const [addAct] = useAddActMutation();
+  const [openSnackbar] = useSnackbar()
+
+  const successSnackBarContent: ReactNode = (
+    <div className="underline decoration-green-600">
+      Demande enregistrée avec succès
+    </div>
+  )
+
+  const failureSnackBarContent: ReactNode = (
+    <div className="underline decoration-red-700">
+      une erreur s'est produite
+    </div>
+  )
+
+  const { marriageInfo, birthInfo, deathInfo, actAddressInfo } = useTypedSelector(
+    (state) => ({ 
+      marriageInfo: state.marriageAct, 
+      birthInfo: state.birthAct, 
+      deathInfo: state.deathAct, 
+      actAddressInfo: state.actAddress, 
+      actType: state.auth.actType 
+    })
+  )
+
+  const handleAddAct = async () => {
+    if (actType && actAddressInfo) {
+      let requestBody: AddAct = { actType, actAddressInfo: actAddressInfo as Required<ActAddress> }
+      if (actType === ActeType.BIRTH) requestBody.birthInfo = birthInfo as Required<BirthInfo>
+      else if (actType === ActeType.DEATH) requestBody.deathInfo = deathInfo as Required<DeathInfo>
+      else if (actType === ActeType.MARRIAGE) requestBody.marriageInfo = marriageInfo as Required<MarriageInfo>
+      try {
+        await addAct(requestBody).unwrap()
+        openSnackbar(successSnackBarContent, 2500)
+      } catch (error) {
+        openSnackbar(failureSnackBarContent, 2500)
+      }
+      
+    }
+  }
+
   const handleSubmitForm = async (values: TermAgreement, actions: FormikHelpers<TermAgreement>) => {
     const validValues = values as Required<TermAgreement>
-     setOpenModal(true)
+    handleAddAct()
   }
 
   const { values, errors, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({

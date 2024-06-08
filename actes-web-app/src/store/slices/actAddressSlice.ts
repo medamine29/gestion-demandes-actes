@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { ActAddress, CivilityType, RequestReason } from '../../data/interfaces.ts';
+import { actApi } from '../apis/act.api.ts';
 
 const actAddressInitialState: Partial<ActAddress> = {
   civility: CivilityType.MALE,
@@ -25,7 +26,12 @@ export const actAddressSlice = createSlice({
     }
   },
   extraReducers(builder) {
-
+    builder.addMatcher(
+      actApi.endpoints.addAct.matchFulfilled,
+      (state, action) => {
+        return actAddressInitialState;
+      }
+    );
   }
 });
 

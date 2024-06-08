@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { CivilityType, MarriageInfo } from '../../data/interfaces.ts';
+import { actApi } from '../apis/act.api.ts';
 
 const marriageInfoInitialState: Partial<MarriageInfo> = {
   marriageDate: '',
@@ -44,7 +45,12 @@ export const marriageActSlice = createSlice({
     }
   },
   extraReducers(builder) {
-
+    builder.addMatcher(
+      actApi.endpoints.addAct.matchFulfilled,
+      (state, action) => {
+        return marriageInfoInitialState;
+      }
+    );
   }
 });
 

@@ -112,7 +112,7 @@ const Dropdown: React.FC<DropdownProps<any>> = ({ id, placeholder, options = [],
       }
 
       <div className="px-2">
-        { errors[id] && <div className={errorMessageClasses}> { errors[id] as ReactNode } </div> }
+        { errors[id] && touched[id] && <div className={errorMessageClasses}> { errors[id] as ReactNode } </div> }
       </div>
       
     </div>

@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { BirthInfo, CivilityType } from '../../data/interfaces.ts';
+import { actApi } from '../apis/act.api.ts';
 
 const birthInfoInitialState: Partial<BirthInfo> = {
   civility: CivilityType.MALE,
@@ -27,7 +28,12 @@ export const birthActSlice = createSlice({
     }
   },
   extraReducers(builder) {
-
+    builder.addMatcher(
+      actApi.endpoints.addAct.matchFulfilled,
+      (state, action) => {
+        return birthInfoInitialState;
+      }
+    );
   }
 });
 
