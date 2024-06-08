@@ -22,7 +22,6 @@ const PaiementMethod: React.FC<PaiementMethodProps> = ({ onClose }) => {
     currency: "EUR",
     intent: "capture",
   };
-  
 
   const successSnackBarContent: ReactNode = (
     <div className="underline decoration-green-600">

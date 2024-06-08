@@ -48,7 +48,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
     <div>
       <div 
         className="flex flex-col border border-orange-500 rounded cursor-pointer hover:-translate-y-2"
-        onClick={() => { setActiveStep(1) }}
+        onClick={() => { setActiveStep(0) }}
       >
         { validationsComponent }
         <Button
