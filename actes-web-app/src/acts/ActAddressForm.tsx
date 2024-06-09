@@ -35,25 +35,17 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
     setActiveStep(2)
   }
 
-
   const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit, setFieldValue, setFieldTouched } = useFormik<Partial<ActAddress>>({
     initialValues: initialBirthAddress,
     validationSchema: birthAddressSchema,
-    onSubmit: handleSubmitForm
+    onSubmit: handleSubmitForm,
   })
-
-
-  useEffect(() => {
-    console.log(errors, touched);
-    
-  }, [errors])
-
 
   return (  
     <div className="flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch p-2"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch p-2 bg-green-200"
       >
         <RadioGroup 
           id="civility"

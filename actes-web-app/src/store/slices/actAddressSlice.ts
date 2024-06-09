@@ -6,6 +6,10 @@ import { actApi } from '../apis/act.api.ts';
 
 const actAddressInitialState: Partial<ActAddress> = {
   civility: CivilityType.MALE,
+  relationship: undefined,
+  actFormat: undefined,
+  copiesCount: undefined,
+  requestReason: undefined,
   firstName: '',
   lastName: '',
   country: '',

@@ -29,7 +29,7 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
   // classes
   const inputContainerClasses = twMerge(
     classNames('w-full relative flex flex-col p-2 bg-gray-100 gap-1 min-h-16 rounded', {
-      'border border-red-700 mb-8': getIn(errors, id) && getIn(touched, id),
+      'border border-red-700': getIn(errors, id) && getIn(touched, id),
       'opacity-50 cursor-not-allowed': disabled
     })
   )
