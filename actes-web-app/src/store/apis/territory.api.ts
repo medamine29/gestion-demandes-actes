@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { MunicipalityDetails } from "../../data/interfaces";
 
 const territoryApi = createApi({
   reducerPath: 'territories',
@@ -29,14 +30,23 @@ const territoryApi = createApi({
             method: 'GET',
           };
         },
-      })
+      }),
+      fetchMunicipalityDetails: builder.query<MunicipalityDetails, string>({
+        query: (name: string) => {
+          return {
+            url: `/municipalities/${name}`,
+            method: 'GET',
+          };
+        },
+      }),
     };
   },
 });
 
 export const { 
   useFetchCountriesQuery,
-  useFetchMunicipalitiesQuery
+  useFetchMunicipalitiesQuery,
+  useFetchMunicipalityDetailsQuery
 } = territoryApi;
 
 export { territoryApi };

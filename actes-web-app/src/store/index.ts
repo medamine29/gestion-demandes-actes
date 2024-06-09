@@ -65,7 +65,7 @@ export { setBirthInfo } from "./slices/birthActSlice.ts";
 export { setMarriageInfo } from "./slices/marriageActSlice.ts"
 export { setDeathInfo } from "./slices/deathActSlice.ts"
 export { setActAddress } from "./slices/actAddressSlice.ts"
-export { useFetchCountriesQuery, useFetchMunicipalitiesQuery } from "./apis/territory.api.ts"
+export { useFetchCountriesQuery, useFetchMunicipalitiesQuery, useFetchMunicipalityDetailsQuery } from "./apis/territory.api.ts"
 export { useAddActMutation, useFetchActsQuery, useFetchActDetailsQuery, useDeleteActMutation } from "./apis/act.api.ts"
 export { useSendMessageMutation, useFetchMessagesQuery, useDeleteMessageMutation } from "./apis/message.api.ts"
 

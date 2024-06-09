@@ -6,10 +6,17 @@ import { Stepper, Step } from 'react-form-stepper';
 import { FaWpforms, FaMapMarkerAlt } from "react-icons/fa";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { stepperStyleConfig } from "../data/styles.ts";
+import { useParams } from "react-router-dom";
+import { useFetchMunicipalityDetailsQuery } from "../store/index.ts";
 
 const MarriageForm = () => {
 
   const [activeStep, setActiveStep] = useState<number>(0)
+  const { city } = useParams();
+
+  const {
+    data: municipalityDetails
+  } = useFetchMunicipalityDetailsQuery(city!, { skip: !city })
 
   const renderStep = () => {
     switch (activeStep) {

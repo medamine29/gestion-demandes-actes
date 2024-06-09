@@ -13,7 +13,7 @@ class MunicipalityService {
   }
 
   async getMunicipalityDetailsByName(name: string) {
-    const muncipality = await this.municipalityRepository.findOne({ name }, {}, { lean: true })
+    const muncipality = await this.municipalityRepository.findOne({ name: { $regex: `^${name}$`, $options: 'i' } }, {}, { lean: true })
     if (!muncipality) throw new NotFoundError(MUNICIPALITY_ERRORS.MUNICIPALITY_NOT_FOUND)
 
     if (muncipality.address instanceof Array) {

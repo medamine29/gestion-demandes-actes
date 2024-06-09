@@ -6,10 +6,17 @@ import { Stepper, Step } from 'react-form-stepper';
 import { FaWpforms, FaMapMarkerAlt } from "react-icons/fa";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { stepperStyleConfig } from "../data/styles.ts";
+import { useParams } from "react-router-dom";
+import { useFetchMunicipalityDetailsQuery } from "../store/index.ts";
 
 const DeathForm = () => {
 
   const [activeStep, setActiveStep] = useState<number>(0)
+  const { city } = useParams();
+
+  const {
+    data: municipalityDetails
+  } = useFetchMunicipalityDetailsQuery(city!, { skip: !city })
 
   const renderStep = () => {
     switch (activeStep) {
@@ -27,7 +34,7 @@ const DeathForm = () => {
   return (
     <div className="w-full md:w-4/5 lg:w-3/5 bg-white p-2 md:p-4 m-2 md:m-4">
       <div className="text-xl font-semibold underline decoration-green-800">
-        Demande d'acte de décès
+        Demande d'acte de décès { municipalityDetails?.name }
       </div>
 
       <Stepper 

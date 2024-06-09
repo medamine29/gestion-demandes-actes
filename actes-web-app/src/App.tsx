@@ -27,9 +27,9 @@ const App: React.FC<{}> = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="/acte-de-naissance" element={<BirthForm />} />
-        <Route path="/acte-de-mariage" element={<MarriageForm />} />
-        <Route path="/acte-de-deces" element={<DeathForm />} />
+        <Route path="/acte-de-naissance/:city?" element={<BirthForm />} />
+        <Route path="/acte-de-mariage/:city?" element={<MarriageForm />} />
+        <Route path="/acte-de-deces/:city?" element={<DeathForm />} />
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/cgv" element={<CGV />} />
         <Route path="/mentions-légales" element={<LegalNotice />} />

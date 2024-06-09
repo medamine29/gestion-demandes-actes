@@ -250,3 +250,11 @@ export interface ActDetails {
   deathInfo: DeathInfoDetails,
   marriageInfo: MarriageInfoDetails
 }
+
+export interface MunicipalityDetails {
+  address: string,
+  email: string,
+  name: string,
+  postalCode: string,
+  url: string
+}
