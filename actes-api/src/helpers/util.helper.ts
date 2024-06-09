@@ -61,7 +61,9 @@ export const formatAct = (act: IAct): ActDetails => {
       relationship: address.relationship,
       actFormat: address.actFormat,
       email: address.email,
-      phone: address.phone
+      phone: address.phone,
+      copiesCount: address.copiesCount,
+      requestReason: address.requestReason
     },
     createdAt: formatDate(act.createdAt.toISOString()),
     isArchived: act.isArchived,

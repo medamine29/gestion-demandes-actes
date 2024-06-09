@@ -20,6 +20,8 @@ const BirthActDetails: React.FC<{ formattedActType: string, client: ActClientDet
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
       <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { client.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>
@@ -40,6 +42,8 @@ const DeathActDetails: React.FC<{ formattedActType: string, client: ActClientDet
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
       <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { client.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>
@@ -80,6 +84,8 @@ const MarriageActDetails: React.FC<{ formattedActType: string, client: ActClient
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
       <div className="text-gray-900/90"> - <u>Relation du demandeur</u> : { client.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>

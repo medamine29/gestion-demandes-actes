@@ -69,25 +69,25 @@ const ActsRequests = () => {
         </label>
         <div className="flex">
           <Button
-            className="p-2 bg-white"
+            className={ `p-2 bg-white ${!actType && 'border border-black'}` }
             onClick={() => { setActType(undefined) }}
           > 
             Tous 
           </Button>
           <Button
-            className="p-2 bg-green-200/50"
+            className={ `p-2 bg-green-200/50 ${ actType === ActeType.BIRTH && 'border border-black' }` }
             onClick={() => { setActType(ActeType.BIRTH) }}
           > 
             Actes de naissance 
           </Button>
           <Button
-            className="p-2 bg-black/50"
+            className={ `p-2 bg-black/50 ${ actType === ActeType.DEATH && 'border border-black' }` }
             onClick={() => { setActType(ActeType.DEATH) }}
           > 
             Actes de décès 
           </Button>
           <Button
-            className="p-2 bg-pink-300/50"
+            className={ `p-2 bg-pink-300/50 ${ actType === ActeType.MARRIAGE && 'border border-black' }` }
             onClick={() => { setActType(ActeType.MARRIAGE) }}
           > 
             Actes de mariage 

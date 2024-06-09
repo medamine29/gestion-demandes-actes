@@ -160,7 +160,9 @@ export interface ActClientDetails {
   relationship: Relationship,
   actFormat: ActFormat,
   email: string,
-  phone: string
+  phone: string,
+  copiesCount: string,
+  requestReason: string
 }
 export interface ActDetails {
   _id: Types.ObjectId,

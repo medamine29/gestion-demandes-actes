@@ -234,6 +234,8 @@ export interface ActClientDetails {
   address: string,
   relationship: Relationship,
   actFormat: ActFormat,
+  copiesCount: string,
+  requestReason: string,
   email: string,
   phone: string
 }
