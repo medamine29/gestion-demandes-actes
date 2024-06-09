@@ -34,7 +34,7 @@ const MarriageForm = () => {
   return (  
     <div className="w-full md:w-4/5 lg:w-3/5 bg-white p-2 md:p-4 m-2 md:m-4">
       <div className="text-xl font-semibold underline decoration-green-800">
-        Demande d'acte de mariage
+        Demande d'acte de mariage { municipalityDetails?.name }
       </div>
 
       <Stepper 

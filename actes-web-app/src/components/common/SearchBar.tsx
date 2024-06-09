@@ -7,13 +7,13 @@ import { twMerge } from "tailwind-merge";
 interface SearchBarProps<T> {
   id: string;
   value: string | number;
-  touched: FormikTouched<T>;
-  errors: FormikErrors<T>;
+  touched?: FormikTouched<T>;
+  errors?: FormikErrors<T>;
   label: string;
   placeholder?: string;
   labelIcon?: React.FC<{ className?: string }>;
   setFieldValue: (field: string, value: any) => void;
-  setFieldTouched: (field: string, touched: boolean) => void
+  setFieldTouched?: (field: string, touched: boolean) => void
 }
 
 const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, label, placeholder, labelIcon: LabelIcon, setFieldValue, setFieldTouched }) => {
@@ -57,14 +57,14 @@ const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, 
   const handleOptionClick = (option: string) => {
     setIsOpen(false)
     setSearchText('')
-    setFieldTouched(id, true)
+    setFieldTouched && setFieldTouched(id, true)
     setFieldValue(id, option)
   }
 
   // classes
   const inputContainerClasses = twMerge(
     classNames('w-full relative flex flex-col bg-gray-100 gap-1 h-16 rounded', {
-      'border border-red-700 mb-8': errors[id] && touched[id]
+      'border border-red-700 mb-8': errors && errors[id] && touched && touched[id]
     })
   );
   const inputLabelClasses = classNames('font-semibold')
@@ -126,7 +126,7 @@ const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, 
       )
     }
 
-    { errors[id] && touched[id] && <div className={errorMessageClasses}> { errors[id] as ReactNode } </div> }
+    { errors && errors[id] && touched && touched[id] && <div className={errorMessageClasses}> { errors[id] as ReactNode } </div> }
   </div>
   );
 }
