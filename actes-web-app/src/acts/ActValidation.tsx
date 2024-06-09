@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useAddActMutation, useTypedSelector } from "../store/index.ts";
 import { ActAddress, ActeType, AddAct, BirthInfo, DeathInfo, MarriageInfo, TermAgreement } from "../data/interfaces.ts";
 import { getBirthActValidationsComponent, getDeathActValidationsComponent, getMarriageActValidationsComponent } from "../data/helpers.tsx";
@@ -75,7 +75,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
     handleAddAct()
   }
 
-  const { values, errors, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({
+  const { values, errors, touched, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({
     initialValues: {
       generalTerms: false,
       personalData: false,
@@ -111,6 +111,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
           label="Je reconnais avoir pris connaissance des conditions générales d'utilisation et de service, et accepte celles-ci sans réserve."
           labelClassName={labelClasses}
           errors={errors}
+          touched={touched}
           setFieldValue={setFieldValue}
         />
 
@@ -120,6 +121,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
           label="J'accepte, en application des dispositions de l'article L.221-28 1° du Code de la Consommation, que le service soit exécuté dans les meilleurs délais suivant la validation de ma commande et en tous cas avant l'expiration du délai de rétractation de 14 jours prévu par l'article L.221-18 du Code de la Consommation"
           labelClassName={labelClasses}
           errors={errors}
+          touched={touched}
           setFieldValue={setFieldValue}
         />
 
@@ -129,6 +131,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
           label="Dans le cas uniquement où j'ai autorisé ci-dessus le service à être exécuté avant l'expiration du délai de rétractation de 14 jours, je renonce expressément, en application des dispositions de l'article L.221-28 1° du Code de la Consommation, au droit de rétractation applicable en matière de vente de services à distance."
           labelClassName={labelClasses}
           errors={errors}
+          touched={touched}
           setFieldValue={setFieldValue}
         />
 
