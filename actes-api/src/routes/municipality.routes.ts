@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import {
-  getMunicipalitiesByName,
+  getMunicipalities,
   getMunicipalityDetailsByName
 } from '../controllers/municipality.controller'
 import { catchMiddleware } from '../middlewares/catch.middleware'
@@ -12,7 +12,7 @@ const router = Router()
 router.get(
   '',
   validate(getMunicipalitiesSchema),
-  catchMiddleware(getMunicipalitiesByName)
+  catchMiddleware(getMunicipalities)
 )
 
 router.get(

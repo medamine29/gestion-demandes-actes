@@ -24,9 +24,9 @@ const territoryApi = createApi({
         },
       }),
       fetchMunicipalities: builder.query<string[], string>({
-        query: (name: string) => {
+        query: (searchInput: string) => {
           return {
-            url: `/municipalities?name=${name}`,
+            url: `/municipalities?searchInput=${searchInput}`,
             method: 'GET',
           };
         },

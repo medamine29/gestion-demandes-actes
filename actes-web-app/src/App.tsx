@@ -20,6 +20,7 @@ import Messages from "./pages/Messages.tsx"
 import ProtectedRoute from "./components/common/ProtectedRoute.tsx"
 import SnackbarProvider from 'react-simple-snackbar'
 import ActDetails from "./pages/ActDetails.tsx"
+import MunicipalitySearch from "./pages/MunicipalitySearch.tsx"
 
 const App: React.FC<{}> = () => {
 
@@ -27,6 +28,7 @@ const App: React.FC<{}> = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
+        <Route path="/recherche-mairie" element={<MunicipalitySearch />} />
         <Route path="/acte-de-naissance/:city?" element={<BirthForm />} />
         <Route path="/acte-de-mariage/:city?" element={<MarriageForm />} />
         <Route path="/acte-de-deces/:city?" element={<DeathForm />} />

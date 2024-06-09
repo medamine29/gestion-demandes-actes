@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import MunicipalityService from '../services/municipality.service'
 
-export const getMunicipalitiesByName = async (req: Request, res: Response) => {
-  const { name } = req.validQuery
-  const municipalities = await MunicipalityService.getMunicipalitiesByName(name as string)
+export const getMunicipalities = async (req: Request, res: Response) => {
+  const { searchInput } = req.validQuery
+  const municipalities = await MunicipalityService.getMunicipalities(searchInput as string)
   return res.json(municipalities)
 }
 

@@ -6,8 +6,17 @@ import { MUNICIPALITY_ERRORS } from '../constants/errors.constant'
 class MunicipalityService {
   private readonly municipalityRepository = MunicipalityRepository
 
-  async getMunicipalitiesByName(name: string) { 
-    const municipalities = await this.municipalityRepository.find({ name: { $regex: `^${name}`, $options: 'i' } }, {}, { lean: true, sort: { name: 1 }  })
+  async getMunicipalities(searchInput: string) { 
+    const municipalities = await this.municipalityRepository.find(
+      { 
+        $or: [
+          { name: { $regex: `^${searchInput}`, $options: 'i' } }, 
+          { postalCode: { $regex: `^${searchInput}` } }
+        ]  
+      },
+      {}, 
+      { lean: true, sort: { name: 1 }  }
+    )
     const formattedMunicipalities = municipalities.map((municipality: IMunicipality) => municipality.name)
     return formattedMunicipalities
   }

@@ -6,7 +6,7 @@ import { RequestValidationSchemas } from '../validations'
  */
 export const getMunicipalitiesSchema: RequestValidationSchemas = {
   query: Joi.object().keys({
-    name: Joi.string().min(2).required(),
+    searchInput: Joi.string().min(2).required(),
   })
 }
 
