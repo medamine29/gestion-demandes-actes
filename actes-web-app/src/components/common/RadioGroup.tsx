@@ -1,15 +1,27 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { RadioOption } from "../../data/interfaces.ts";
+import { FormikErrors, FormikTouched, getIn } from "formik";
+import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
-interface RadioGroupProps {
+interface RadioGroupProps<T> {
   id: string;
   label: string;
   value?: string;
+  touched: FormikTouched<T>;
+  errors: FormikErrors<T>;
   options: RadioOption[];
   setFieldValue: (field: string, value: any) => void;
 }
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ id, label, value, options, setFieldValue }) => {
+const RadioGroup: React.FC<RadioGroupProps<any>> = ({ id, label, value, errors, touched, options, setFieldValue }) => {
+
+  const inputContainerClasses = twMerge(
+    classNames('w-full relative flex flex-col px-1 bg-gray-100 min-h-12 rounded', {
+      'border border-red-700': getIn(errors, id) && getIn(touched, id)
+    })
+  )
+  const errorMessageClasses = classNames('text-sm text-red-700')
 
   const renderedOptions = options.map(option => (
     <div
@@ -29,13 +41,14 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ id, label, value, options, setF
   ))
 
   return (  
-    <div className="flex flex-col p-2 rounded bg-gray-100">
+    <div className={inputContainerClasses}>
       <div className="font-semibold">
         { label }
       </div>
       <div className="flex">
         { renderedOptions }
       </div>
+      { getIn(errors, id) && getIn(touched, id) && <div className={errorMessageClasses}> { getIn(errors, id) as ReactNode } </div> }
     </div>
   );
 }

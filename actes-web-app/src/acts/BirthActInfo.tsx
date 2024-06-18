@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FormikHelpers, useFormik } from "formik";
 import { BirthInfo } from "../data/interfaces.ts"
 import { birthFormSchema } from "../data/validations.tsx";
@@ -53,6 +53,8 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
           value={values.civility}
           options={civilityRadioGroupOptions}
           setFieldValue={setFieldValue}
+          errors={errors}
+          touched={touched}
         />
 
         <DateInput

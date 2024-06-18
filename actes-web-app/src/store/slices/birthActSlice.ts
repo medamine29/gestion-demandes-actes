@@ -5,7 +5,7 @@ import { BirthInfo, CivilityType } from '../../data/interfaces.ts';
 import { actApi } from '../apis/act.api.ts';
 
 const birthInfoInitialState: Partial<BirthInfo> = {
-  civility: CivilityType.MALE,
+  civility: undefined,
   birthDate: '',
   lastName: '',
   firstName: '',

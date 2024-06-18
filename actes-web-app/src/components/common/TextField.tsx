@@ -28,13 +28,13 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
  
   // classes
   const inputContainerClasses = twMerge(
-    classNames('w-full relative flex flex-col p-2 bg-gray-100 gap-1 min-h-16 rounded', {
+    classNames('w-full relative flex flex-col px-1 bg-gray-100 min-h-12 rounded', {
       'border border-red-700': getIn(errors, id) && getIn(touched, id),
       'opacity-50 cursor-not-allowed': disabled
     })
   )
   const inputLabelClasses = classNames('font-semibold')
-  const inputClasses = classNames('w-full bg-transparent text-gray-700 focus:outline-none mr-8')
+  const inputClasses = classNames('w-full bg-transparent text-gray-700 focus:outline-none')
   const errorMessageClasses = classNames('text-sm text-red-700')
 
   return (  
