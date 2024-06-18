@@ -9,10 +9,11 @@ import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
 import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import CheckBox from "../components/common/CheckBox.tsx"
+import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
 
 interface MarriageActInfoProps {
   setActiveStep: (step: number) => void;
@@ -48,327 +49,363 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
         className="w-full flex flex-col gap-1 items-center p-1"
       >
 
-      <div className="w-full">
-        <DateInput
-          id="marriageDate"
-          label="Date de mariage"
-          value={values.marriageDate || ''}
-          errors={errors}
-          touched={touched}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 w-full">
 
-      <div className="flex flex-col md:flex-row gap-1 w-full">
-        <Dropdown
-          id="country"
-          options={countries}
-          value={values.country || ''} 
-          label="Pays"
-          isFetching={isFetchingCountries}
-          placeholder="Sélectionner un pays"
-          touched={touched}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-          className="w-full"
-        />
-
-        <SearchBar
-          id="marriagePlace"
-          value={values.marriagePlace || ''}
-          touched={touched}
-          errors={errors}
-          label="Commune du mariage"
-          placeholder="Sélectionner une commune"
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-          labelIcon={TbMapPinSearch}
-        />
-      </div>
-
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
-        
-        <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
-          Identité de la personne faisant l'objet de la demande
-        </div>
-        
-        <RadioGroup 
-          id="firstPerson.civility"
-          label="Civilité"
-          value={values.firstPerson?.civility}
-          options={civilityRadioGroupOptions}
-          setFieldValue={setFieldValue}
-          touched={touched}
-          errors={errors}
-        />
-
-        <TextField
-          id="firstPerson.firstName"
-          value={values.firstPerson?.firstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom de naissance"
-          placeholder="Saisir le prénom de naissance"
-          info="Veuillez renseigner le prénom de naissance de la première personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <TextField
-          id="firstPerson.lastName"
-          value={values.firstPerson?.lastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom de naissance"
-          placeholder="Saisir le nom de naissance"
-          info="Veuillez renseigner le nom de naissance de la première personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <TextField
-          id="firstPerson.usageLastName"
-          value={values.firstPerson?.usageLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom d'usage (si différent)"
-          placeholder="Saisir le nom d'usage"
-          info="Veuillez renseigner le nom d'usage si différent de la première personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <div className="col-span-1 md:col-span-2">
           <DateInput
-            id="firstPerson.birthDate"
-            label="Date de naissance"
-            value={values.firstPerson?.birthDate || ''}
+            id="marriageDate"
+            label="Date de mariage"
+            value={values.marriageDate || ''}
             errors={errors}
             touched={touched}
             setFieldValue={setFieldValue}
             setFieldTouched={setFieldTouched}
           />
-        </div>
 
-        <CheckBox
-          id="firstPerson.unknownFather"
-          value={values.firstPerson?.unknownFather}
-          label="Père inconnu"
-          errors={errors}
-          setFieldValue={setFieldValue}
-        />
-
-        <TextField
-          id="firstPerson.fathersLastName"
-          value={values.firstPerson?.fathersLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom du père"
-          placeholder="Saisir le nom du père"
-          info="Veuillez renseigner le nom du père de la premiére personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.firstPerson?.unknownFather}
-        />
-
-        <TextField
-          id="firstPerson.fathersFirstName"
-          value={values.firstPerson?.fathersFirstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom du père"
-          placeholder="Saisir le prénom du père"
-          info="Veuillez renseigner le prénom du père de la premiére personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.firstPerson?.unknownFather}
-        />
-
-        <CheckBox
-          id="firstPerson.unknownMother"
-          value={values.firstPerson?.unknownMother}
-          label="Mère inconnu"
-          errors={errors}
-          setFieldValue={setFieldValue}
-        />
-
-        <TextField
-          id="firstPerson.mothersLastName"
-          value={values.firstPerson?.mothersLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom du mère"
-          placeholder="Saisir le nom de la mère"
-          info="Veuillez renseigner le nom de la mère de la premiére personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.firstPerson?.unknownMother}
-        />
-
-        <TextField
-          id="firstPerson.mothersFirstName"
-          value={values.firstPerson?.mothersFirstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom de la mère"
-          placeholder="Saisir le prénom de la mère"
-          info="Veuillez renseigner le prénom de la mère de la premiére personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.firstPerson?.unknownMother}
-        />
-        
-      </div>
-
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
-        
-        <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
-          Identité du conjoint 
-        </div>
-        
-        <RadioGroup 
-          id="secondPerson.civility"
-          label="Civilité"
-          value={values.secondPerson?.civility}
-          options={civilityRadioGroupOptions}
-          setFieldValue={setFieldValue}
-          touched={touched}
-          errors={errors}
-        />
-
-        <TextField
-          id="secondPerson.firstName"
-          value={values.secondPerson?.firstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom de naissance"
-          placeholder="Saisir le prénom de naissance"
-          info="Veuillez renseigner le prénom de naissance de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <TextField
-          id="secondPerson.lastName"
-          value={values.secondPerson?.lastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom de naissance"
-          placeholder="Saisir le nom de naissance"
-          info="Veuillez renseigner le nom de naissance de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <TextField
-          id="secondPerson.usageLastName"
-          value={values.secondPerson?.usageLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom d'usage (si différent)"
-          placeholder="Saisir le nom d'usage"
-          info="Veuillez renseigner le nom d'usage si différent de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-        />
-
-        <div className="col-span-1 md:col-span-2">
-          <DateInput
-            id="secondPerson.birthDate"
-            label="Date de naissance"
-            value={values.secondPerson?.birthDate || ''}
-            errors={errors}
+          <SearchBar
+            id="marriagePlace"
+            value={values.marriagePlace || ''}
             touched={touched}
+            errors={errors}
+            label="Commune du mariage"
+            placeholder="Sélectionner une commune"
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+            labelIcon={TbMapPinSearch}
+          />
+
+          <Dropdown
+            id="country"
+            options={countries}
+            value={values.country || ''} 
+            label="Pays"
+            isFetching={isFetchingCountries}
+            placeholder="Sélectionner un pays"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+            className="w-full"
+          />
+
+          <Dropdown
+            id="relationship"
+            options={relationshipOptions}
+            value={values.relationship}
+            label="Vous êtes"
+            placeholder="Sélectionner votre relation avec la personne concernée"
+            touched={touched}
+            errors={errors}
             setFieldValue={setFieldValue}
             setFieldTouched={setFieldTouched}
           />
+
+          <Dropdown
+            id="actFormat"
+            options={getActTypeOptionsByRelationship(values.relationship)}
+            value={values.actFormat}
+            label="Type d'acte demandé"
+            placeholder="Sélectionner le type d'acte"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+          />
+
+          <Dropdown
+            id="requestReason"
+            options={requestReasonOptions}
+            value={values.requestReason}
+            label="Motif de la demande"
+            placeholder="Sélectionner le motif de la demande"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+          />
+
         </div>
 
-        <CheckBox
-          id="secondPerson.unknownFather"
-          value={values.secondPerson?.unknownFather}
-          label="Père inconnu"
-          errors={errors}
-          setFieldValue={setFieldValue}
-        />
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch border border-gray-700 rounded p-1">
+          
+          <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
+            Identité de la personne faisant l'objet de la demande
+          </div>
+          
+          <RadioGroup 
+            id="firstPerson.civility"
+            label="Civilité"
+            value={values.firstPerson?.civility}
+            options={civilityRadioGroupOptions}
+            setFieldValue={setFieldValue}
+            touched={touched}
+            errors={errors}
+          />
 
-        <TextField
-          id="secondPerson.fathersLastName"
-          value={values.secondPerson?.fathersLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom du père"
-          placeholder="Saisir le nom du père"
-          info="Veuillez renseigner le nom du père de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.secondPerson?.unknownFather}
-        />
+          <TextField
+            id="firstPerson.firstName"
+            value={values.firstPerson?.firstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom de naissance"
+            placeholder="Saisir le prénom de naissance"
+            info="Veuillez renseigner le prénom de naissance de la première personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
 
-        <TextField
-          id="secondPerson.fathersFirstName"
-          value={values.secondPerson?.fathersFirstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom du père"
-          placeholder="Saisir le prénom du père"
-          info="Veuillez renseigner le prénom du père de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.secondPerson?.unknownFather}
-        />
+          <TextField
+            id="firstPerson.lastName"
+            value={values.firstPerson?.lastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom de naissance"
+            placeholder="Saisir le nom de naissance"
+            info="Veuillez renseigner le nom de naissance de la première personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
 
-        <CheckBox
-          id="secondPerson.unknownMother"
-          value={values.secondPerson?.unknownMother}
-          label="Mère inconnu"
-          errors={errors}
-          setFieldValue={setFieldValue}
-        />
+          <TextField
+            id="firstPerson.usageLastName"
+            value={values.firstPerson?.usageLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom d'usage (si différent)"
+            placeholder="Saisir le nom d'usage"
+            info="Veuillez renseigner le nom d'usage si différent de la première personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
 
-        <TextField
-          id="secondPerson.mothersLastName"
-          value={values.secondPerson?.mothersLastName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Nom de la mère"
-          placeholder="Saisir le nom de la mère"
-          info="Veuillez renseigner le nom de la mère de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.secondPerson?.unknownMother}
-        />
+          <div className="col-span-1 md:col-span-2">
+            <DateInput
+              id="firstPerson.birthDate"
+              label="Date de naissance"
+              value={values.firstPerson?.birthDate || ''}
+              errors={errors}
+              touched={touched}
+              setFieldValue={setFieldValue}
+              setFieldTouched={setFieldTouched}
+            />
+          </div>
 
-        <TextField
-          id="secondPerson.mothersFirstName"
-          value={values.secondPerson?.mothersFirstName || ''}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          touched={touched}
-          errors={errors}
-          label="Prénom de la mère"
-          placeholder="Saisir le prénom de la mère"
-          info="Veuillez renseigner le prénom de la mère de la deuxiéme personne concernée par l'acte de naissance."
-          labelIcon={CgProfile}
-          disabled={values.secondPerson?.unknownMother}
-        />
-        
-      </div>
+          <CheckBox
+            id="firstPerson.unknownFather"
+            value={values.firstPerson?.unknownFather}
+            label="Père inconnu"
+            errors={errors}
+            setFieldValue={setFieldValue}
+          />
+
+          <TextField
+            id="firstPerson.fathersLastName"
+            value={values.firstPerson?.fathersLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom du père"
+            placeholder="Saisir le nom du père"
+            info="Veuillez renseigner le nom du père de la premiére personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.firstPerson?.unknownFather}
+          />
+
+          <TextField
+            id="firstPerson.fathersFirstName"
+            value={values.firstPerson?.fathersFirstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom du père"
+            placeholder="Saisir le prénom du père"
+            info="Veuillez renseigner le prénom du père de la premiére personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.firstPerson?.unknownFather}
+          />
+
+          <CheckBox
+            id="firstPerson.unknownMother"
+            value={values.firstPerson?.unknownMother}
+            label="Mère inconnu"
+            errors={errors}
+            setFieldValue={setFieldValue}
+          />
+
+          <TextField
+            id="firstPerson.mothersLastName"
+            value={values.firstPerson?.mothersLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom du mère"
+            placeholder="Saisir le nom de la mère"
+            info="Veuillez renseigner le nom de la mère de la premiére personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.firstPerson?.unknownMother}
+          />
+
+          <TextField
+            id="firstPerson.mothersFirstName"
+            value={values.firstPerson?.mothersFirstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom de la mère"
+            placeholder="Saisir le prénom de la mère"
+            info="Veuillez renseigner le prénom de la mère de la premiére personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.firstPerson?.unknownMother}
+          />
+          
+        </div>
+
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch border border-gray-700 rounded p-1">
+          
+          <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
+            Identité du conjoint 
+          </div>
+          
+          <RadioGroup 
+            id="secondPerson.civility"
+            label="Civilité"
+            value={values.secondPerson?.civility}
+            options={civilityRadioGroupOptions}
+            setFieldValue={setFieldValue}
+            touched={touched}
+            errors={errors}
+          />
+
+          <TextField
+            id="secondPerson.firstName"
+            value={values.secondPerson?.firstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom de naissance"
+            placeholder="Saisir le prénom de naissance"
+            info="Veuillez renseigner le prénom de naissance de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
+
+          <TextField
+            id="secondPerson.lastName"
+            value={values.secondPerson?.lastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom de naissance"
+            placeholder="Saisir le nom de naissance"
+            info="Veuillez renseigner le nom de naissance de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
+
+          <TextField
+            id="secondPerson.usageLastName"
+            value={values.secondPerson?.usageLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom d'usage (si différent)"
+            placeholder="Saisir le nom d'usage"
+            info="Veuillez renseigner le nom d'usage si différent de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+          />
+
+          <div className="col-span-1 md:col-span-2">
+            <DateInput
+              id="secondPerson.birthDate"
+              label="Date de naissance"
+              value={values.secondPerson?.birthDate || ''}
+              errors={errors}
+              touched={touched}
+              setFieldValue={setFieldValue}
+              setFieldTouched={setFieldTouched}
+            />
+          </div>
+
+          <CheckBox
+            id="secondPerson.unknownFather"
+            value={values.secondPerson?.unknownFather}
+            label="Père inconnu"
+            errors={errors}
+            setFieldValue={setFieldValue}
+          />
+
+          <TextField
+            id="secondPerson.fathersLastName"
+            value={values.secondPerson?.fathersLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom du père"
+            placeholder="Saisir le nom du père"
+            info="Veuillez renseigner le nom du père de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.secondPerson?.unknownFather}
+          />
+
+          <TextField
+            id="secondPerson.fathersFirstName"
+            value={values.secondPerson?.fathersFirstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom du père"
+            placeholder="Saisir le prénom du père"
+            info="Veuillez renseigner le prénom du père de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.secondPerson?.unknownFather}
+          />
+
+          <CheckBox
+            id="secondPerson.unknownMother"
+            value={values.secondPerson?.unknownMother}
+            label="Mère inconnu"
+            errors={errors}
+            setFieldValue={setFieldValue}
+          />
+
+          <TextField
+            id="secondPerson.mothersLastName"
+            value={values.secondPerson?.mothersLastName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Nom de la mère"
+            placeholder="Saisir le nom de la mère"
+            info="Veuillez renseigner le nom de la mère de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.secondPerson?.unknownMother}
+          />
+
+          <TextField
+            id="secondPerson.mothersFirstName"
+            value={values.secondPerson?.mothersFirstName || ''}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            touched={touched}
+            errors={errors}
+            label="Prénom de la mère"
+            placeholder="Saisir le prénom de la mère"
+            info="Veuillez renseigner le prénom de la mère de la deuxiéme personne concernée par l'acte de naissance."
+            labelIcon={CgProfile}
+            disabled={values.secondPerson?.unknownMother}
+          />
+          
+        </div>
 
       </form>
       <Button

@@ -7,12 +7,13 @@ import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import Button from "../components/common/Button.tsx";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
 import DateInput from "../components/common/DateInput.tsx";
 import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import CheckBox from "../components/common/CheckBox.tsx";
+import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
 
 interface BirthActInfoProps {
   setActiveStep: (step: number) => void;
@@ -189,6 +190,43 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
           labelIcon={CgProfile}
           disabled={values.unknownMother}
         />
+
+          <Dropdown
+            id="relationship"
+            options={relationshipOptions}
+            value={values.relationship}
+            label="Vous êtes"
+            placeholder="Sélectionner votre relation avec la personne concernée"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+            className="col-span-2"
+          />
+
+          <Dropdown
+            id="actFormat"
+            options={getActTypeOptionsByRelationship(values.relationship)}
+            value={values.actFormat}
+            label="Type d'acte demandé"
+            placeholder="Sélectionner le type d'acte"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+          />
+
+          <Dropdown
+            id="requestReason"
+            options={requestReasonOptions}
+            value={values.requestReason}
+            label="Motif de la demande"
+            placeholder="Sélectionner le motif de la demande"
+            touched={touched}
+            errors={errors}
+            setFieldValue={setFieldValue}
+            setFieldTouched={setFieldTouched}
+          />
 
       </form>
 

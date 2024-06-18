@@ -25,14 +25,14 @@ export const getBirthActValidationsComponent = (birthInfo: Partial<BirthInfo>, a
       </div>
       <div className="font-semibold p-1 underline"> Détails de l'acte : </div>
       <div className="py-1 px-3">
-        <div> <strong> Relation avec la personne concernée : </strong>  { actAddress.relationship } </div>
-        <div> <strong> Type d'acte demandé : </strong>  { actAddress.actFormat } </div>
-        <div> <strong> Motif de la demande demande : </strong>  { actAddress.requestReason } </div>
+        <div> <strong> Relation avec la personne concernée : </strong>  { birthInfo.relationship } </div>
+        <div> <strong> Type d'acte demandé : </strong>  { birthInfo.actFormat } </div>
+        <div> <strong> Motif de la demande demande : </strong>  { birthInfo.requestReason } </div>
       </div>
       <div className="font-semibold p-1 underline"> Adresse : </div>
       <div className="py-1 px-3">
         <div>
-          L' <strong> acte </strong> vous sera envoyé en <strong> { actAddress.copiesCount } { actAddress.copiesCount === "1" ? 'exemplaire' : 'exemplaires' } </strong> à l'adresse :
+          L' <strong> acte </strong> vous sera envoyé à l'adresse :
           <div>
             { actAddress.civility === CivilityType.MALE ? "Monsieur" : "Madame" } 
             <strong> { `${ actAddress.firstName } ${ actAddress.lastName }` } </strong>
@@ -126,14 +126,14 @@ export const getMarriageActValidationsComponent = (marriageInfo: Partial<Marriag
       <div className="font-semibold p-1 underline"> Détails de l'acte : </div>
         <div className="py-1 px-3">
           <div> <strong> Date et lieu : </strong>  { marriageInfo.marriageDate } à { `${marriageInfo.marriagePlace}, ${marriageInfo.country}` } </div>
-          <div> <strong> Relation avec la personne concernée : </strong>  { actAddress.relationship } </div>
-          <div> <strong> Type d'acte demandé : </strong>  { actAddress.actFormat } </div>
-          <div> <strong> Motif de la demande demande : </strong>  { actAddress.requestReason } </div>
+          <div> <strong> Relation avec la personne concernée : </strong>  { marriageInfo.relationship } </div>
+          <div> <strong> Type d'acte demandé : </strong>  { marriageInfo.actFormat } </div>
+          <div> <strong> Motif de la demande demande : </strong>  { marriageInfo.requestReason } </div>
         </div>
       <div className="font-semibold p-1 underline"> Adresse : </div>
         <div className="py-1 px-3">
           <div>
-            L' <strong> acte </strong> vous sera envoyé en <strong> { actAddress.copiesCount } { actAddress.copiesCount === "1" ? 'exemplaire' : 'exemplaires' } </strong> à l'adresse :
+            L' <strong> acte </strong> vous sera envoyé à l'adresse :
             <div>
               { actAddress.civility === CivilityType.MALE ? "Monsieur" : "Madame" } 
               <strong> { `${ actAddress.firstName } ${ actAddress.lastName }` } </strong>
@@ -165,14 +165,14 @@ export const getDeathActValidationsComponent = (deathInfo: Partial<DeathInfo>, a
       </div>
       <div className="font-semibold p-1 underline"> Détails de l'acte : </div>
       <div className="py-1 px-3">
-        <div> <strong> Relation avec la personne concernée : </strong>  { actAddress.relationship } </div>
-        <div> <strong> Type d'acte demandé : </strong>  { actAddress.actFormat } </div>
-        <div> <strong> Motif de la demande demande : </strong>  { actAddress.requestReason } </div>
+        <div> <strong> Relation avec la personne concernée : </strong>  { deathInfo.relationship } </div>
+        <div> <strong> Type d'acte demandé : </strong>  { deathInfo.actFormat } </div>
+        <div> <strong> Motif de la demande demande : </strong>  { deathInfo.requestReason } </div>
       </div>
       <div className="font-semibold p-1 underline"> Adresse : </div>
       <div className="py-1 px-3">
         <div>
-          L' <strong> acte </strong> vous sera envoyé en <strong> { actAddress.copiesCount } { actAddress.copiesCount === "1" ? 'exemplaire' : 'exemplaires' } </strong> à l'adresse :
+          L' <strong> acte </strong> vous sera envoyé à l'adresse :
           <div>
             { actAddress.civility === CivilityType.MALE ? "Monsieur" : "Madame" } 
             <strong> { `${ actAddress.firstName } ${ actAddress.lastName }` } </strong>

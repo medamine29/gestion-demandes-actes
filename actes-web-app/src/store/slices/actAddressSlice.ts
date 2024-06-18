@@ -6,10 +6,6 @@ import { actApi } from '../apis/act.api.ts';
 
 const actAddressInitialState: Partial<ActAddress> = {
   civility: CivilityType.MALE,
-  relationship: undefined,
-  actFormat: undefined,
-  copiesCount: undefined,
-  requestReason: undefined,
   firstName: '',
   lastName: '',
   country: '',
@@ -42,7 +38,7 @@ export const actAddressSlice = createSlice({
 export const actAddressReducer = persistReducer({
   key: 'rtk:actAddress',
   storage,
-  whitelist: ['civility', 'firstName', 'lastName', 'country', 'address', 'postalCode', 'city', 'email', 'validateEmail', 'phone', 'relationship', 'actFormat', 'copiesCount', 'requestReason']
+  whitelist: ['civility', 'firstName', 'lastName', 'country', 'address', 'postalCode', 'city', 'email', 'validateEmail', 'phone']
 }, actAddressSlice.reducer);
 
 export const { setActAddress } = actAddressSlice.actions;

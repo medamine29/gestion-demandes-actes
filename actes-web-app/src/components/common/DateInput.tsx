@@ -36,7 +36,7 @@ const DateInput: React.FC<DateInputProps<any>> = ({ id, label, value, errors, to
   }, [date, year, month])
 
   const errorMessageClasses = classNames('text-sm text-red-700')
-  const inputClasses = classNames('bg-white/60 p-1 rounded w-1/3')
+  const inputClasses = classNames('bg-white/60 px-1 rounded w-1/3')
   
   return (
     <div className={inputContainerClasses}>

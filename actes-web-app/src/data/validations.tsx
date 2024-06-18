@@ -8,6 +8,9 @@ const phoneNumberRegex = /^0\d(\s?\d{2}){4}$/;
 
 export const birthFormSchema = yup.object().shape({
   civility: yup.string().oneOf(Object.values(CivilityType), "Veuillez renseigner une civilité valide").required("Ce champs est requis"),
+  relationship: yup.string().oneOf(Object.values(Relationship), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
+  requestReason: yup.string().oneOf(Object.values(RequestReason), "Veuillez renseigner un motif valide").required("Ce champs est requis"),
+  actFormat: yup.string().oneOf(Object.values(ActFormat), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
   birthDate: yup.string()
     .test("isDate-check", "Veuillez renseigner une date valide", (value) => {
       if (!value) return false
@@ -67,10 +70,6 @@ export const birthFormSchema = yup.object().shape({
 
 export const birthAddressSchema = yup.object().shape({
   civility: yup.string().oneOf(Object.values(CivilityType), "Veuillez renseigner une civilité valide").required("Ce champs est requis"),
-  relationship: yup.string().oneOf(Object.values(Relationship), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
-  requestReason: yup.string().oneOf(Object.values(RequestReason), "Veuillez renseigner un motif valide").required("Ce champs est requis"),
-  copiesCount: yup.string().required("Ce champs est requis"),
-  actFormat: yup.string().oneOf(Object.values(ActFormat), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
   lastName: yup.string().min(2, "Le nom est trop court")
     .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")
     .required("Ce champs est requis"),
@@ -168,6 +167,9 @@ export const marriageFormSchema = yup.object().shape({
     })
     .required("Ce champs est requis"),
   country: yup.string().required("Ce champs est requis"),
+  relationship: yup.string().oneOf(Object.values(Relationship), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
+  requestReason: yup.string().oneOf(Object.values(RequestReason), "Veuillez renseigner un motif valide").required("Ce champs est requis"),
+  actFormat: yup.string().oneOf(Object.values(ActFormat), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
   marriagePlace: yup.string().min(2, "Le prénom est trop court")
     .required("Ce champs est requis"),
   firstPerson: personSchema,
@@ -176,6 +178,9 @@ export const marriageFormSchema = yup.object().shape({
 
 export const deathFormSchema = yup.object().shape({
   civility: yup.string().oneOf(Object.values(CivilityType), "Veuillez renseigner une civilité valide").required("Ce champs est requis"),
+  relationship: yup.string().oneOf(Object.values(Relationship), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
+  requestReason: yup.string().oneOf(Object.values(RequestReason), "Veuillez renseigner un motif valide").required("Ce champs est requis"),
+  actFormat: yup.string().oneOf(Object.values(ActFormat), "Veuillez renseigner une relation valide").required("Ce champs est requis"),
   lastName: yup.string().min(2, "Le nom est trop court")
     .matches(alphabeticalRegex, "Le nom ne peut contenir que des lettres")
     .required("Ce champs est requis"),

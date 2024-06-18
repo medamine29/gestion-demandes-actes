@@ -6,10 +6,13 @@ import { actApi } from '../apis/act.api.ts';
 
 const marriageInfoInitialState: Partial<MarriageInfo> = {
   marriageDate: '',
+  relationship: undefined,
+  actFormat: undefined,
+  requestReason: undefined,
   country: '',
   marriagePlace: '',
   firstPerson: {
-    civility: CivilityType.MALE,
+    civility: undefined,
     lastName: '',
     usageLastName: '',
     firstName: '',
@@ -22,7 +25,7 @@ const marriageInfoInitialState: Partial<MarriageInfo> = {
     mothersLastName: ''
   },
   secondPerson: {
-    civility: CivilityType.FEMALE,
+    civility: undefined,
     lastName: '',
     usageLastName: '',
     firstName: '',
@@ -57,7 +60,7 @@ export const marriageActSlice = createSlice({
 export const marriageActReducer = persistReducer({
   key: 'rtk:birthAct',
   storage,
-  whitelist: ['marriageDate', 'country', 'marriagePlace', 'firstPerson', 'secondPerson']
+  whitelist: ['marriageDate', 'country', 'marriagePlace', 'firstPerson', 'secondPerson', 'relationship', 'actFormat', 'requestReason']
 }, marriageActSlice.reducer);
 
 export const { setMarriageInfo } = marriageActSlice.actions;

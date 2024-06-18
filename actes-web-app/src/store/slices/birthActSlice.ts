@@ -6,6 +6,9 @@ import { actApi } from '../apis/act.api.ts';
 
 const birthInfoInitialState: Partial<BirthInfo> = {
   civility: undefined,
+  relationship: undefined,
+  actFormat: undefined,
+  requestReason: undefined,
   birthDate: '',
   lastName: '',
   firstName: '',
@@ -40,7 +43,7 @@ export const birthActSlice = createSlice({
 export const birthActReducer = persistReducer({
   key: 'rtk:birthAct',
   storage,
-  whitelist: ['civility', 'birthDate', 'lastName', 'firstName', 'country', 'birthPlace', 'unknownFather', 'fathersFirstName', 'fathersLastName', 'unknownMother', 'mothersFirstName', 'mothersLastName']
+  whitelist: ['civility', 'birthDate', 'lastName', 'firstName', 'country', 'birthPlace', 'unknownFather', 'fathersFirstName', 'fathersLastName', 'unknownMother', 'mothersFirstName', 'mothersLastName', 'relationship', 'actFormat', 'requestReason']
 }, birthActSlice.reducer);
 
 export const { setBirthInfo } = birthActSlice.actions;

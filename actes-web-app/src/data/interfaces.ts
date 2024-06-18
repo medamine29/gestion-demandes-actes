@@ -61,6 +61,9 @@ export interface Category extends Omit<Acte, 'type'> {
 
 export interface BirthInfo {
   civility: CivilityType,
+  relationship: Relationship,
+  actFormat: ActFormat,
+  requestReason: RequestReason,
   birthDate: string,
   lastName: string,
   firstName: string,
@@ -82,10 +85,6 @@ export interface RadioOption {
 
 export interface ActAddress {
   civility: CivilityType,
-  relationship: Relationship,
-  actFormat: ActFormat,
-  requestReason: RequestReason,
-  copiesCount: string,
   firstName: string,
   lastName: string,
   country: string,
@@ -104,7 +103,7 @@ export interface TermAgreement {
 }
 
 export interface Person  {
-  civility: CivilityType,
+  civility?: CivilityType,
   lastName: string,
   usageLastName?: string,
   firstName: string,
@@ -118,6 +117,9 @@ export interface Person  {
 }
 export interface MarriageInfo {
   marriageDate: string,
+  relationship: Relationship,
+  actFormat: ActFormat,
+  requestReason: RequestReason,
   country: string,
   marriagePlace: string,
   firstPerson: Person,
@@ -126,6 +128,9 @@ export interface MarriageInfo {
 
 export interface DeathInfo {
   civility: CivilityType,
+  relationship: Relationship,
+  actFormat: ActFormat,
+  requestReason: RequestReason,
   lastName: string,
   firstName: string,
   country: string,

@@ -6,6 +6,9 @@ import { actApi } from '../apis/act.api.ts';
 
 const deathInfoInitialState: Partial<DeathInfo> = {
   civility: CivilityType.MALE,
+  relationship: undefined,
+  actFormat: undefined,
+  requestReason: undefined,
   deathDate: '',
   deathPlace: '',
   lastName: '',
@@ -34,7 +37,7 @@ export const deathActSlice = createSlice({
 export const deathActReducer = persistReducer({
   key: 'rtk:deathAct',
   storage,
-  whitelist: ['civility', 'deathDate', 'deathPlace', 'lastName', 'firstName', 'country']
+  whitelist: ['civility', 'deathDate', 'deathPlace', 'lastName', 'firstName', 'country', 'relationship', 'actFormat', 'requestReason']
 }, deathActSlice.reducer);
 
 export const { setDeathInfo } = deathActSlice.actions;

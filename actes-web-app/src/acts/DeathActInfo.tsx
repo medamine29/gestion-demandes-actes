@@ -9,9 +9,10 @@ import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
 import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
+import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
 
 interface DeathActInfoProps {
   setActiveStep: (step: number) => void;
@@ -46,25 +47,18 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
         onSubmit={handleSubmit}
         className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
       >
-        <RadioGroup 
-          id="civility"
-          label="Civilité"
-          value={values.civility}
-          options={civilityRadioGroupOptions}
-          setFieldValue={setFieldValue}
-          errors={errors}
-          touched={touched}
-        />
-
-        <DateInput
-          id="deathDate"
-          label="Date de décès"
-          value={values.deathDate || ''}
-          errors={errors}
-          touched={touched}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
+        
+        <div className="col-span-2">
+          <RadioGroup 
+            id="civility"
+            label="Civilité"
+            value={values.civility}
+            options={civilityRadioGroupOptions}
+            setFieldValue={setFieldValue}
+            errors={errors}
+            touched={touched}
+          />
+        </div>
 
         <TextField
           id="lastName"
@@ -92,6 +86,28 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
           labelIcon={CgProfile}
         />
 
+        <SearchBar
+          id="deathPlace"
+          value={values.deathPlace || ''}
+          touched={touched}
+          errors={errors}
+          label="Lieu de décès"
+          placeholder="Sélectionner une commune"
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+          labelIcon={TbMapPinSearch}
+        />
+
+        <DateInput
+          id="deathDate"
+          label="Date de décès"
+          value={values.deathDate || ''}
+          errors={errors}
+          touched={touched}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+        />
+
         <Dropdown
           id="country"
           options={countries}
@@ -105,16 +121,40 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
           setFieldTouched={setFieldTouched}
         />
 
-        <SearchBar
-          id="deathPlace"
-          value={values.deathPlace || ''}
+        <Dropdown
+          id="relationship"
+          options={relationshipOptions}
+          value={values.relationship}
+          label="Vous êtes"
+          placeholder="Sélectionner votre relation avec la personne concernée"
           touched={touched}
           errors={errors}
-          label="Lieu de décès"
-          placeholder="Sélectionner une commune"
           setFieldValue={setFieldValue}
           setFieldTouched={setFieldTouched}
-          labelIcon={TbMapPinSearch}
+        />
+
+        <Dropdown
+          id="actFormat"
+          options={getActTypeOptionsByRelationship(values.relationship)}
+          value={values.actFormat}
+          label="Type d'acte demandé"
+          placeholder="Sélectionner le type d'acte"
+          touched={touched}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
+        />
+
+        <Dropdown
+          id="requestReason"
+          options={requestReasonOptions}
+          value={values.requestReason}
+          label="Motif de la demande"
+          placeholder="Sélectionner le motif de la demande"
+          touched={touched}
+          errors={errors}
+          setFieldValue={setFieldValue}
+          setFieldTouched={setFieldTouched}
         />
 
       </form>

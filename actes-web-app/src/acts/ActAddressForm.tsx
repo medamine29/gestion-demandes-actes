@@ -58,60 +58,12 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
         />
 
         <Dropdown
-          id="relationship"
-          options={relationshipOptions}
-          value={values.relationship}
-          label="Vous êtes"
-          placeholder="Sélectionner votre relation avec la personne concernée"
-          touched={touched}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
-
-        <Dropdown
           id="country"
           options={countries}
           value={values.country}
           label="Pays de résidence"
           isFetching={isFetchingCountries}
           placeholder="Sélectionner un pays"
-          touched={touched}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
-
-        <Dropdown
-          id="actFormat"
-          options={getActTypeOptionsByRelationship(values.relationship)}
-          value={values.actFormat}
-          label="Type d'acte demandé"
-          placeholder="Sélectionner le type d'acte"
-          touched={touched}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
-
-        <Dropdown
-          id="requestReason"
-          options={requestReasonOptions}
-          value={values.requestReason}
-          label="Motif de la demande"
-          placeholder="Sélectionner le motif de la demande"
-          touched={touched}
-          errors={errors}
-          setFieldValue={setFieldValue}
-          setFieldTouched={setFieldTouched}
-        />
-
-        <Dropdown
-          id="copiesCount"
-          options={["1", "2", "3", "4", "5"]}
-          value={values.copiesCount}
-          label="Nombre d'exemplaires"
-          placeholder="Sélectionner le nombre d'exemplaires"
           touched={touched}
           errors={errors}
           setFieldValue={setFieldValue}
