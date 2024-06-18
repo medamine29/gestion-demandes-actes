@@ -252,9 +252,18 @@ export interface ActDetails {
 }
 
 export interface MunicipalityDetails {
-  address: string,
-  email: string,
-  name: string,
-  postalCode: string,
-  url: string
+  _id?: string
+  name: string
+  address: string
+  coordinates: {
+    lon: number
+    lat: number
+  }
+  department: string
+  city: string
+  region: string
+  departmentCode: string
+  postalCode: string
+  email: string
+  webSite?: string
 }

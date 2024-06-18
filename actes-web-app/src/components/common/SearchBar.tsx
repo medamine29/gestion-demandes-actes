@@ -10,13 +10,14 @@ interface SearchBarProps<T> {
   touched?: FormikTouched<T>;
   errors?: FormikErrors<T>;
   label: string;
+  optionPrefix?: string;
   placeholder?: string;
   labelIcon?: React.FC<{ className?: string }>;
   setFieldValue: (field: string, value: any) => void;
   setFieldTouched?: (field: string, touched: boolean) => void
 }
 
-const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, label, placeholder, labelIcon: LabelIcon, setFieldValue, setFieldTouched }) => {
+const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, label, optionPrefix, placeholder, labelIcon: LabelIcon, setFieldValue, setFieldTouched }) => {
 
   // hooks
   const [isOpen, setIsOpen] = useState(false)
@@ -79,7 +80,7 @@ const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, 
         className="hover:bg-gray-200 rounded cursor-pointer p-1"
         onClick={() => handleOptionClick(muncipalityElem)}
       >
-        {muncipalityElem}
+        {optionPrefix} {muncipalityElem}
       </div>
     )
   })
