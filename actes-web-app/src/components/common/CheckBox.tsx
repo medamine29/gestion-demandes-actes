@@ -29,7 +29,7 @@ const CheckBox: React.FC<CheckBoxProps<any>> = ({ id, value = false, label, labe
 
   return (  
     <div className={inputContainerClasses}>
-      <div className="flex p-2 gap-2 items-center">
+      <div className="flex px-1 gap-2 items-center">
         <input
           id={id}
           type="checkbox"

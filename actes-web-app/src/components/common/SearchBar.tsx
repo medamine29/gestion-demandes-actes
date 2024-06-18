@@ -86,7 +86,7 @@ const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, 
   })
   
   return (  
-    <div className="flex flex-col">
+    <div className="w-full flex flex-col">
       <div 
         ref={divEl}
         className={inputContainerClasses}

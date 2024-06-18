@@ -45,7 +45,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
     <div className="flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch p-2"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
       >
         <RadioGroup 
           id="civility"

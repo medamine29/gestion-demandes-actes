@@ -90,7 +90,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
         
-        <div className="col-span-1 md:col-span-2 p-2 border-b font-semibold">
+        <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
           Identité de la personne faisant l'objet de la demande
         </div>
         
@@ -100,6 +100,8 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
           value={values.firstPerson?.civility}
           options={civilityRadioGroupOptions}
           setFieldValue={setFieldValue}
+          touched={touched}
+          errors={errors}
         />
 
         <TextField
@@ -229,7 +231,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch border border-gray-700 rounded p-1">
         
-        <div className="col-span-1 md:col-span-2 p-2 border-b font-semibold">
+        <div className="col-span-1 md:col-span-2 p-1 border-b font-semibold">
           Identité du conjoint 
         </div>
         
@@ -239,6 +241,8 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
           value={values.secondPerson?.civility}
           options={civilityRadioGroupOptions}
           setFieldValue={setFieldValue}
+          touched={touched}
+          errors={errors}
         />
 
         <TextField
