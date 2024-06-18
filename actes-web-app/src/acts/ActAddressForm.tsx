@@ -45,7 +45,7 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
     <div className="flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center items-stretch p-2 bg-green-200"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
       >
         <RadioGroup 
           id="civility"
@@ -53,6 +53,8 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
           value={values.civility}
           options={civilityRadioGroupOptions}
           setFieldValue={setFieldValue}
+          errors={errors}
+          touched={touched}
         />
 
         <Dropdown
