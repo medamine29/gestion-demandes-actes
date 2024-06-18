@@ -12,16 +12,15 @@ const BirthActDetails: React.FC<{ formattedActType: string, client: ActClientDet
     <div className="flex flex-col">
       <div className="text-center font-semibold text-lg underline decoration-green-300/70 pb-2"> { `Acte de ${formattedActType}` } </div>
       <div className={labelClasses}> Détails de l'acte : </div>
-      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { client.actFormat } </div>
+      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { birthInfo.actFormat } </div>
       <div className="text-gray-900/90"> - <u>Nom de la personne concerncé(e)</u> : { birthInfo.user } </div>
       <div className="text-gray-900/90"> - <u>Date de naissance</u> : { birthInfo.birthDetails } </div>
       <div className="text-gray-900/90"> - <u>Père</u> : { birthInfo.father } </div>
       <div className="text-gray-900/90"> - <u>Mère</u> : { birthInfo.mother } </div>
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
-      <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { client.relationship } </div>
-      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
-      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
+      <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { birthInfo.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { birthInfo.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>
@@ -36,14 +35,13 @@ const DeathActDetails: React.FC<{ formattedActType: string, client: ActClientDet
     <div className="flex flex-col">
       <div className="text-center font-semibold text-lg underline decoration-black/70 pb-2"> { `Acte de ${formattedActType}` } </div>
       <div className={labelClasses}> Détails de l'acte : </div>
-      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { client.actFormat } </div>
+      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { deathInfo.actFormat } </div>
       <div className="text-gray-900/90"> - <u>Nom de la personne concerncé(e)</u> : { deathInfo.user } </div>
       <div className="text-gray-900/90"> - <u>Date</u> : { deathInfo.deathDetails } </div>
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
-      <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { client.relationship } </div>
-      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
-      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
+      <div className="text-gray-900/90"> - <u>Relation avec la personne concerné(e)</u> : { deathInfo.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { deathInfo.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>
@@ -77,15 +75,14 @@ const MarriageActDetails: React.FC<{ formattedActType: string, client: ActClient
     <div className="flex flex-col"> 
       <div className="text-center font-semibold text-lg underline decoration-pink-400/80 pb-2"> { `Acte de ${formattedActType}` } </div>
       <div className={labelClasses}> Détails de l'acte : </div>
-      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { client.actFormat } </div>
+      <div className="text-gray-900/90"> - <u>Format de l'acte</u> : { marriageInfo.actFormat } </div>
       <div className="text-gray-900/90"> - <u>Date</u> : { marriageInfo.marriageDetails } </div>
       { renderPerson("Premiére", marriageInfo.firstPerson) }
       { renderPerson("Deuxiéme", marriageInfo.secondPerson) }
       <div className={labelClasses}> Demandeur : </div>
       <div className="text-gray-900/90"> - <u>Nom</u> : { client.user } </div>
-      <div className="text-gray-900/90"> - <u>Relation du demandeur</u> : { client.relationship } </div>
-      <div className="text-gray-900/90"> - <u>Nombre d'exemplaires</u> : { client.copiesCount } </div>
-      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { client.requestReason } </div>
+      <div className="text-gray-900/90"> - <u>Relation du demandeur</u> : { marriageInfo.relationship } </div>
+      <div className="text-gray-900/90"> - <u>Motif de la demande</u> : { marriageInfo.requestReason } </div>
       <div className="text-gray-900/90"> - <u>Numéro</u> : { client.phone } </div>
       <div className="text-gray-900/90"> - <u>E-mail</u> : { client.email } </div>
       <div className="text-gray-900/90"> - <u>Adresse</u> : { client.address } </div>

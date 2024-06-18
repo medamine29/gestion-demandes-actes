@@ -30,7 +30,6 @@ class MailService {
               <div style="height: 4px;"> </div>
               <div> <strong> Détails de l'acte : </strong> </div>
               <div style="height: 4px;"> </div>
-              <div> format : ${actData.actAddressInfo.actFormat} </div>
               <div> ${getMailContentByAct(actData)} </div>
             </td>
           </tr>

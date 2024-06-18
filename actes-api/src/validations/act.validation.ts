@@ -42,8 +42,6 @@ export const addActSchema: RequestValidationSchemas = {
     actType: Joi.string().valid(...Object.values(ActType)).required(),
     actAddressInfo: Joi.object().keys({
       civility: Joi.string().valid(...Object.values(Civility)).required(),
-      relationship: Joi.string().valid(...Object.values(Relationship)).required(),
-      actFormat: Joi.string().valid(...Object.values(ActFormat)).required(),
       firstName: Joi.string().required().trim(),
       lastName: Joi.string().required().trim(),
       country: Joi.string().required(),
@@ -51,12 +49,13 @@ export const addActSchema: RequestValidationSchemas = {
       postalCode: Joi.string().regex(frenchPostalCodeRegex).required().trim(),
       city: Joi.string().required().trim(),
       email: Joi.string().email().required().trim(),
-      phone: Joi.string().regex(frenchPhoneNumberRegex).required().trim(),
-      copiesCount: Joi.string().required(),
-      requestReason: Joi.string().valid(...Object.values(RequestReason)).required(),
+      phone: Joi.string().regex(frenchPhoneNumberRegex).required().trim()
     }),
     birthInfo: Joi.object().keys({
       civility: Joi.string().valid(...Object.values(Civility)).required(),
+      relationship: Joi.string().valid(...Object.values(Relationship)).required(),
+      actFormat: Joi.string().valid(...Object.values(ActFormat)).required(),
+      requestReason: Joi.string().valid(...Object.values(RequestReason)).required(),
       birthDate: Joi.date().max(new Date()).required(),
       lastName: Joi.string().required().trim(),
       firstName: Joi.string().required().trim(),
@@ -90,6 +89,9 @@ export const addActSchema: RequestValidationSchemas = {
     }),
     marriageInfo: Joi.object().keys({
       marriageDate: Joi.date().max(new Date()).required(),
+      relationship: Joi.string().valid(...Object.values(Relationship)).required(),
+      actFormat: Joi.string().valid(...Object.values(ActFormat)).required(),
+      requestReason: Joi.string().valid(...Object.values(RequestReason)).required(),
       country: Joi.string().required().trim(),
       marriagePlace: Joi.string().required().trim(),
       firstPerson: personSchema,
@@ -100,6 +102,9 @@ export const addActSchema: RequestValidationSchemas = {
     }),
     deathInfo: Joi.object().keys({
       civility: Joi.string().valid(...Object.values(Civility)).required(),
+      relationship: Joi.string().valid(...Object.values(Relationship)).required(),
+      actFormat: Joi.string().valid(...Object.values(ActFormat)).required(),
+      requestReason: Joi.string().valid(...Object.values(RequestReason)).required(),
       lastName: Joi.string().required().trim(),
       firstName: Joi.string().required().trim(),
       country: Joi.string().required().trim(),

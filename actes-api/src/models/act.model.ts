@@ -14,6 +14,9 @@ export enum ActType {
 
 export interface BirthInfo {
   civility: Civility,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
   birthDate: Date,
   lastName: string,
   firstName: string,
@@ -44,6 +47,9 @@ export interface Person  {
 export interface MarriageInfo {
   marriageDate: Date,
   country: string,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
   marriagePlace: string,
   firstPerson: Person,
   secondPerson: Person
@@ -51,6 +57,9 @@ export interface MarriageInfo {
 
 export interface DeathInfo {
   civility: Civility,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
   lastName: string,
   firstName: string,
   country: string,
@@ -94,10 +103,6 @@ export enum ActFormat {
 
 export interface ActAddressInfo {
   civility: Civility,
-  relationship: Relationship,
-  requestReason: RequestReason,
-  actFormat: ActFormat,
-  copiesCount: string,
   firstName: string,
   lastName: string,
   country: string,
@@ -140,29 +145,34 @@ export interface BirthInfoDetails {
   user: string,
   birthDetails: string,
   father: string,
-  mother: string
+  mother: string,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
 }
 
 export interface DeathInfoDetails {
   user: string,
-  deathDetails: string
+  deathDetails: string,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
 }
 
 export interface MarriageInfoDetails {
   marriageDetails: string,
   firstPerson: PersonDetails,
-  secondPerson: PersonDetails
+  secondPerson: PersonDetails,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
 }
 
 export interface ActClientDetails {
   user: string,
   address: string,
-  relationship: Relationship,
-  actFormat: ActFormat,
   email: string,
   phone: string,
-  copiesCount: string,
-  requestReason: string
 }
 export interface ActDetails {
   _id: Types.ObjectId,
@@ -188,26 +198,6 @@ const actSchema = new Schema<IAct>(
         type: String,
         enum: Object.values(Civility),
         required: true
-      },
-      relationship: {
-        type: String,
-        enum: Object.values(Relationship),
-        required: true
-      },
-      actFormat: {
-        type: String,
-        enum: Object.values(ActFormat),
-        required: true
-      },
-      requestReason: {
-        type: String,
-        enum: Object.values(RequestReason),
-        required: true
-      },
-      copiesCount: {
-        type: String,
-        required: true,
-        trim: true,
       },
       firstName: {
         type: String,
@@ -255,6 +245,21 @@ const actSchema = new Schema<IAct>(
         civility:  {
           type: String,
           enum: Object.values(Civility),
+          required: true
+        },
+        relationship: {
+          type: String,
+          enum: Object.values(Relationship),
+          required: true
+        },
+        actFormat: {
+          type: String,
+          enum: Object.values(ActFormat),
+          required: true
+        },
+        requestReason: {
+          type: String,
+          enum: Object.values(RequestReason),
           required: true
         },
         birthDate: Date,
@@ -311,6 +316,21 @@ const actSchema = new Schema<IAct>(
         country: {
           type: String,
           trim: true,
+          required: true
+        },
+        relationship: {
+          type: String,
+          enum: Object.values(Relationship),
+          required: true
+        },
+        actFormat: {
+          type: String,
+          enum: Object.values(ActFormat),
+          required: true
+        },
+        requestReason: {
+          type: String,
+          enum: Object.values(RequestReason),
           required: true
         },
         marriagePlace: {
@@ -415,6 +435,21 @@ const actSchema = new Schema<IAct>(
         civility: {
           type: String,
           enum: Object.values(Civility),
+          required: true
+        },
+        relationship: {
+          type: String,
+          enum: Object.values(Relationship),
+          required: true
+        },
+        actFormat: {
+          type: String,
+          enum: Object.values(ActFormat),
+          required: true
+        },
+        requestReason: {
+          type: String,
+          enum: Object.values(RequestReason),
           required: true
         },
         lastName: {

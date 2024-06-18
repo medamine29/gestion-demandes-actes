@@ -220,27 +220,32 @@ export interface BirthInfoDetails {
   user: string,
   birthDetails: string,
   father: string,
-  mother: string
+  mother: string,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat
 }
 
 export interface DeathInfoDetails {
   user: string,
-  deathDetails: string
+  deathDetails: string,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
 }
 
 export interface MarriageInfoDetails {
   marriageDetails: string,
   firstPerson: PersonDetails,
-  secondPerson: PersonDetails
+  secondPerson: PersonDetails,
+  relationship: Relationship,
+  requestReason: RequestReason,
+  actFormat: ActFormat,
 }
 
 export interface ActClientDetails {
   user: string,
   address: string,
-  relationship: Relationship,
-  actFormat: ActFormat,
-  copiesCount: string,
-  requestReason: string,
   email: string,
   phone: string
 }

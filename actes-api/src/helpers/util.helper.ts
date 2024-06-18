@@ -15,6 +15,9 @@ export const formatBirthInfo = (birthInfo: BirthInfo) => {
     birthDetails: `Né(e) le ${formatDateShort(birthInfo.birthDate.toISOString())} à ${birthInfo.birthPlace}, ${birthInfo.country}`,
     father: birthInfo.unknownFather ? 'Père inconnu' : `${birthInfo.fathersFirstName} ${birthInfo.fathersLastName}`,
     mother: birthInfo.unknownMother ? 'Mère inconnu' : `${birthInfo.mothersFirstName} ${birthInfo.mothersLastName}`,
+    relationship: birthInfo.relationship,
+    actFormat: birthInfo.actFormat,
+    requestReason: birthInfo.requestReason,
   }
 
   return formattedBirthInfo
@@ -24,6 +27,9 @@ export const formatDeathInfo = (deathInfo: DeathInfo) => {
   const formattedDeathInfo = {
     user: `${deathInfo.civility === Civility.MALE ? 'Monsieur' : 'Madame' } ${deathInfo.firstName} ${deathInfo.lastName}`,
     deathDetails: `Décedé(e) le ${formatDateShort(deathInfo.deathDate)} à ${deathInfo.deathPlace}, ${deathInfo.country}`,
+    relationship: deathInfo.relationship,
+    actFormat: deathInfo.actFormat,
+    requestReason: deathInfo.requestReason,
   }
 
   return formattedDeathInfo
@@ -43,7 +49,10 @@ export const formatMarriageInfo = (marriageInfo: MarriageInfo) => {
   const formattedMarriageInfo = {
     marriageDetails: `le ${formatDateShort(marriageInfo.marriageDate.toISOString())} à ${marriageInfo.marriagePlace}, ${marriageInfo.country}`,
     firstPerson: formatPerson(marriageInfo.firstPerson),
-    secondPerson: formatPerson(marriageInfo.secondPerson)
+    secondPerson: formatPerson(marriageInfo.secondPerson),
+    relationship: marriageInfo.relationship,
+    actFormat: marriageInfo.actFormat,
+    requestReason: marriageInfo.requestReason,
   }
 
   return formattedMarriageInfo
@@ -58,12 +67,8 @@ export const formatAct = (act: IAct): ActDetails => {
     client: {
       user: `${address.civility === Civility.MALE ? 'Monsieur' : 'Madame' } ${address.firstName} ${address.lastName}}`,
       address: `${address.address}, ${address.postalCode}, ${address.city}, ${address.country}`,
-      relationship: address.relationship,
-      actFormat: address.actFormat,
       email: address.email,
-      phone: address.phone,
-      copiesCount: address.copiesCount,
-      requestReason: address.requestReason
+      phone: address.phone
     },
     createdAt: formatDate(act.createdAt.toISOString()),
     isArchived: act.isArchived,
