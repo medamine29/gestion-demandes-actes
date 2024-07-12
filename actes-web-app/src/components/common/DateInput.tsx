@@ -16,7 +16,7 @@ interface DateInputProps<T> {
 const DateInput: React.FC<DateInputProps<any>> = ({ id, label, value, errors, touched, setFieldValue, setFieldTouched }) => { 
 
   const inputContainerClasses = twMerge(
-    classNames('flex flex-col px-1 rounded bg-gray-100', {
+    classNames('flex flex-col rounded bg-white p-1', {
       'border border-red-700': getIn(errors, id) && getIn(touched, id) 
     })
   );
@@ -36,7 +36,7 @@ const DateInput: React.FC<DateInputProps<any>> = ({ id, label, value, errors, to
   }, [date, year, month])
 
   const errorMessageClasses = classNames('text-sm text-red-700')
-  const inputClasses = classNames('bg-white/60 px-1 rounded w-1/3')
+  const inputClasses = classNames('bg-gray-100/60 px-1 rounded w-1/3')
   
   return (
     <div className={inputContainerClasses}>

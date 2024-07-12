@@ -44,7 +44,7 @@ const Dropdown: React.FC<DropdownProps<any>> = ({ id, placeholder, options = [],
   // classes
   const dropdownClasses = classNames(className, 'relative cursor-pointer rounded')
   const inputContainerClasses = twMerge(
-    classNames('bg-gray-100 px-1 rounded', {
+    classNames('bg-white rounded p-1', {
       'border border-red-700': errors[id] && touched[id]
     }, className)
   );

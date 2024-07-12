@@ -8,12 +8,7 @@ class MunicipalityService {
 
   async getMunicipalities(searchInput: string) { 
     const municipalities = await this.municipalityRepository.find(
-      { 
-        $or: [
-          { name: { $regex: `^${searchInput}`, $options: 'i' } }, 
-          { postalCode: { $regex: `^${searchInput}` } }
-        ]  
-      },
+      { name: { $regex: `^${searchInput}`, $options: 'i' } },
       {}, 
       { lean: true }
     );

@@ -46,7 +46,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
     <div className="flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1 bg-customLightBlue p-2"
       >
         <RadioGroup 
           id="civility"
@@ -231,7 +231,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
       </form>
 
       <Button
-        className="justify-center py-2 px-8 bg-green-900 w-full rounded text-white"
+        className="justify-center py-2 px-8 bg-customBlue rounded text-white"
         disabled={isSubmitting}
         type="submit"
         onClick={handleSubmit}

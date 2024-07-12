@@ -97,6 +97,7 @@ export interface ActAddress {
 }
 
 export interface TermAgreement {
+  pricing: boolean,
   generalTerms: boolean,
   personalData: boolean,
   application: boolean

@@ -17,7 +17,7 @@ interface RadioGroupProps<T> {
 const RadioGroup: React.FC<RadioGroupProps<any>> = ({ id, label, value, errors, touched, options, setFieldValue }) => {
 
   const inputContainerClasses = twMerge(
-    classNames('w-full relative flex flex-col px-1 bg-gray-100 min-h-12 rounded', {
+    classNames('w-full relative flex flex-col px-1 bg-white p-1 min-h-12 rounded', {
       'border border-red-700': getIn(errors, id) && getIn(touched, id)
     })
   )

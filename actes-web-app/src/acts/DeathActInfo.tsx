@@ -9,7 +9,7 @@ import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, deathActRelationshipOptions, deathActRequestReasonOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
 import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
@@ -42,7 +42,7 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
   })
 
   return (  
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 bg-customLightBlue p-2">
       <form
         onSubmit={handleSubmit}
         className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
@@ -123,7 +123,7 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
 
         <Dropdown
           id="relationship"
-          options={relationshipOptions}
+          options={deathActRelationshipOptions}
           value={values.relationship}
           label="Vous êtes"
           placeholder="Sélectionner votre relation avec la personne concernée"
@@ -147,7 +147,7 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
 
         <Dropdown
           id="requestReason"
-          options={requestReasonOptions}
+          options={deathActRequestReasonOptions}
           value={values.requestReason}
           label="Motif de la demande"
           placeholder="Sélectionner le motif de la demande"
@@ -160,7 +160,7 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
       </form>
 
       <Button
-        className="justify-center py-2 px-8 bg-green-900 w-full rounded text-white"
+        className="justify-center py-2 px-8 bg-customBlue rounded text-white"
         disabled={isSubmitting}
         type="submit"
         onClick={handleSubmit}

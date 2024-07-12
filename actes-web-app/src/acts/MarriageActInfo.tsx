@@ -43,7 +43,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
   })
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 bg-customLightBlue p-2">
       <form
         onSubmit={handleSubmit}
         className="w-full flex flex-col gap-1 items-center p-1"
@@ -409,7 +409,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
 
       </form>
       <Button
-        className="justify-center py-2 px-8 bg-green-900 w-full rounded text-white"
+        className="justify-center py-2 px-8 bg-customBlue rounded text-white"
         disabled={isSubmitting}
         type="submit"
         onClick={handleSubmit}

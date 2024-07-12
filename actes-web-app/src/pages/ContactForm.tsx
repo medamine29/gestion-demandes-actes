@@ -41,10 +41,10 @@ const ContactForm = () => {
   const errorMessageClasses = classNames('text-sm text-red-700')
 
   return (  
-    <div className="w-full md:w-4/5 lg:w-3/5 bg-white p-2 md:p-4 m-2 md:m-4">
+    <div className="w-full flex items-center flex-col  p-2 md:p-4 m-2 md:m-4 bg-customLightBlue">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-center p-2 items-stretch"
+        className="md:w-4/5 lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-2 items-center p-2 items-stretch"
       >
 
         <TextField
@@ -119,7 +119,7 @@ const ContactForm = () => {
       </form>
 
       <Button
-        className="justify-center py-2 px-8 bg-green-900 w-full rounded text-white"
+        className="md:w-4/5 lg:w-3/5 justify-center py-2 px-8 bg-customBlue w-full rounded text-white"
         disabled={isSubmitting}
         type="submit"
         onClick={handleSubmit}

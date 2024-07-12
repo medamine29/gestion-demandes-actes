@@ -33,8 +33,16 @@ const DeathForm = () => {
 
   return (
     <div className="w-full md:w-4/5 lg:w-3/5 bg-white p-2 md:p-4 m-2 md:m-4">
-      <div className="text-xl font-semibold underline decoration-green-800">
-        Demande d'acte de décès { municipalityDetails?.name }
+      <div className="text-customBlue flex flex-col">
+        <div className="text-xl md:text-3xl font-bold">
+          Commandez votre acte de décès en ligne { municipalityDetails?.name }
+        </div>
+        <div>
+          Remplissez simplement notre formulaire en quelques clics.
+          Nous traitons votre demande rapidement afin que vous receviez votre acte de
+          naissance directement dans votre boite aux lettres. Profitez de notre service sécurisé
+          et rapide, tout en restant chez vous !
+        </div>
       </div>
 
       <Stepper 

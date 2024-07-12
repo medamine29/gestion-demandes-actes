@@ -21,15 +21,15 @@ const MunicipalitySearch = () => {
   const actClasses = "hover:-translate-y-1 cursor-pointer underline text-lg"
 
   return (  
-    <div className="w-5/6 md:w-4/5 bg-white p-8 m-4 flex flex-col items-center gap-2">
-      <div className="text-2xl p-4 font-bold text-gray-800">
+    <div className="w-5/6 md:w-4/5 bg-customLightBlue p-8 m-4 flex flex-col items-center gap-2">
+      <div className="text-xl md:text-3xl p-4 font-bold text-customBlue">
         Trouvez les coordonnées de votre mairie de naissance
       </div>
       <SearchBar
         id="birthPlace"
         value={mairie}
-        label="Recherche par commune ou code postal"
-        placeholder="commune ou code postal."
+        label="Recherche par commune"
+        placeholder="commune."
         labelIcon={TbMapPinSearch}
         setFieldValue={handleChange}
         optionPrefix="Mairie de"

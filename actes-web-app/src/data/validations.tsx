@@ -89,6 +89,7 @@ export const birthAddressSchema = yup.object().shape({
 })
 
 export const termAgreementSchema = yup.object().shape({
+  pricing: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus"),
   generalTerms: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus"),
   personalData: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus"),
   application: yup.boolean().oneOf([true], "Veuillez cocher la case ci-dessus").required("Veuillez cocher la case ci-dessus")

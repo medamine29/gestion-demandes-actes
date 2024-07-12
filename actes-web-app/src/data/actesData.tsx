@@ -67,6 +67,17 @@ export const relationshipOptions: Relationship[] = [
   Relationship.OTHER,
 ]
 
+export const deathActRelationshipOptions: Relationship[] = [
+  Relationship.PARENT,
+  Relationship.SPOUSE,
+  Relationship.CHILD,
+  Relationship.GRAND_PARENT,
+  Relationship.GRAND_CHILD,
+  Relationship.LEGAL_REPRESENTANT,
+  Relationship.HEIR,
+  Relationship.OTHER,
+]
+
 export const requestReasonOptions: RequestReason[] = [
   RequestReason.MARRIAGE_FILE,
   RequestReason.ID,
@@ -77,6 +88,14 @@ export const requestReasonOptions: RequestReason[] = [
   RequestReason.PACS,
   RequestReason.GENEALOGY,
   RequestReason.NATIONALITY_CERTIFICATE,
+  RequestReason.LITIGATION,
+  RequestReason.PENSION,
+  RequestReason.OTHER
+]
+
+export const deathActRequestReasonOptions: RequestReason[] = [
+  RequestReason.SUCCSSION,
+  RequestReason.SOCIAL_SECURITY_BENEFITS,
   RequestReason.LITIGATION,
   RequestReason.PENSION,
   RequestReason.OTHER

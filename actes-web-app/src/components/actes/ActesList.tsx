@@ -8,7 +8,7 @@ const ActesList = () => {
   const renderedActes = actesList.map(acte => <ActeBox key={acte.type} acte={acte} /> )
 
   return (  
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+    <div className="grid bg-customLightBlue w-full grid-cols-1 sm:grid-cols-3 gap-2 p-4">
       { renderedActes }
     </div>
   );
@@ -24,13 +24,13 @@ interface ActeBoxProps {
 const ActeBox: React.FC<ActeBoxProps> = ({ acte }) => {
 
   // classes
-  const iconClasses = "text-7xl text-green-900 m-1"
+  const iconClasses = "text-7xl text-customBlue m-1"
 
   return (  
     <Link to={acte.path} >
-      <div className="flex flex-col gap-2 p-4 border rounded text-center items-center border-green-900 hover:-translate-y-2">
+      <div className="flex flex-col gap-2 p-4 text-center items-center hover:-translate-y-2">
         { acte.renderIcon(iconClasses) }
-        <div className="font-semibold"> { acte.label } </div>
+        <div className="font-semibold text-black"> { acte.label } </div>
       </div>
     </Link>
   );

@@ -31,19 +31,19 @@ const MainLayout: React.FC<{}> = () => {
 
   // renders
   return (
-    <div className="bg-gray-200/50 w-screen flex flex-col items-center">
+    <div className="w-screen flex flex-col items-center">
       <Header />
       <ScrollToTop />
       { token && (
           <Button
-            className="self-end p-2 m-2 rounded border-green-900 text-green-900"
+            className="self-end p-2 m-2 rounded border-customBlue text-customBlue"
             onClick={handleLogout}
           >
             Se déconnecter
           </Button>
         ) 
       }
-      <div className="w-11/12 mt-2 min-h-screen flex flex-col items-center">
+      <div className="w-full mt-2 min-h-screen flex flex-col items-center">
         <Outlet />
       </div>
       <Footer />

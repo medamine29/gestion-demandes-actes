@@ -28,7 +28,7 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
  
   // classes
   const inputContainerClasses = twMerge(
-    classNames('w-full relative flex flex-col px-1 bg-gray-100 min-h-12 rounded', {
+    classNames('w-full relative flex flex-col px-1 bg-white min-h-12 rounded', {
       'border border-red-700': getIn(errors, id) && getIn(touched, id),
       'opacity-50 cursor-not-allowed': disabled
     })
@@ -61,7 +61,7 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
         { info && (
             <div className="absolute right-0">
               <a id={`tooltip-${id.replace(".","")}`} className="right-2">
-                <FaCircleInfo className="absolute cursor-pointer text-xl text-green-900 top-1/2 transform -translate-y-1/2 right-2 opacity-70" />  
+                <FaCircleInfo className="absolute cursor-pointer text-xl text-customBlue top-1/2 transform -translate-y-1/2 right-2 opacity-70" />  
               </a>
               <Tooltip anchorSelect={`#tooltip-${id.replace(".","")}`} place="top-end" className="z-50">
                 { info }
@@ -75,13 +75,13 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
             showHiddenText
               ? (
                 <MdOutlineVisibilityOff 
-                  className="absolute text-xl text-black right-1 bottom-1 text-green-900/70"
+                  className="absolute text-xl text-black right-1 bottom-1 text-customBlue"
                   onClick={() => { setHiddenText(false) }}
                 />
               )
               : (
                 <MdOutlineVisibility 
-                  className="absolute text-xl text-black right-1 bottom-1 text-green-900/70"
+                  className="absolute text-xl text-black right-1 bottom-1 text-customBlue"
                   onClick={() => { setHiddenText(true) }}
                 />
               )

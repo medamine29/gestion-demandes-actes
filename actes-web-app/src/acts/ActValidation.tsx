@@ -77,6 +77,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
 
   const { values, errors, touched, isSubmitting, handleSubmit, setFieldValue } = useFormik<TermAgreement>({
     initialValues: {
+      pricing: false,
       generalTerms: false,
       personalData: false,
       application: false
@@ -95,7 +96,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
       >
         { validationsComponent }
         <Button
-          className="justify-center p-3 text-green-900 font-semibold border-0 text-lg underline decoration-orange-700"
+          className="justify-center p-3 text-customBlue font-semibold border-0 text-lg underline decoration-orange-700"
         >
           MODIFIER
         </Button>
@@ -105,10 +106,12 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-2"
       >
+        <div className="h-4" />
+
         <CheckBox
-          id="generalTerms"
-          value={values.generalTerms}
-          label="Je reconnais avoir pris connaissance des conditions générales d'utilisation et de service, et accepte celles-ci sans réserve."
+          id="pricing"
+          value={values.pricing}
+          label="Validez votre commande d’acte de naissance – Frais de traitement : 32€ (incluant les frais d’envoi)"
           labelClassName={labelClasses}
           errors={errors}
           touched={touched}
@@ -116,9 +119,23 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
         />
 
         <CheckBox
+          id="generalTerms"
+          value={values.generalTerms}
+          labelClassName={labelClasses}
+          errors={errors}
+          touched={touched}
+          setFieldValue={setFieldValue}
+        >
+          En cochant cette case j’accepte les <u> conditions générales de vente </u>
+        </CheckBox>
+
+        <CheckBox
           id="application"
           value={values.application}
-          label="J'accepte, en application des dispositions de l'article L.221-28 1° du Code de la Consommation, que le service soit exécuté dans les meilleurs délais suivant la validation de ma commande et en tous cas avant l'expiration du délai de rétractation de 14 jours prévu par l'article L.221-18 du Code de la Consommation"
+          label="J&#39;accepte, conformément aux dispositions de l’article du Code de la
+            Consommation, que le service soit exécuté dès la validation de ma commande et, en
+            tout état de cause, avant l&#39;expiration du délai de rétractation de 14 jours prévu par
+            l&#39;article L.221-18 du Code de la Consommation."
           labelClassName={labelClasses}
           errors={errors}
           touched={touched}
@@ -128,7 +145,10 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
         <CheckBox
           id="personalData"
           value={values.personalData}
-          label="Dans le cas uniquement où j'ai autorisé ci-dessus le service à être exécuté avant l'expiration du délai de rétractation de 14 jours, je renonce expressément, en application des dispositions de l'article L.221-28 1° du Code de la Consommation, au droit de rétractation applicable en matière de vente de services à distance."
+          label="Uniquement si j&#39;ai autorisé ci-dessus l&#39;exécution du service avant la
+            fin du délai de rétractation de 14 jours, je renonce expressément, en vertu des
+            dispositions de l&#39;article L.221-28 1° du Code de la Consommation, au droit de
+            rétractation applicable aux ventes de services à distance."
           labelClassName={labelClasses}
           errors={errors}
           touched={touched}
@@ -136,7 +156,7 @@ const ActValidation: React.FC<ActValidationProps> = ({ setActiveStep }) => {
         />
 
         <Button
-          className="w-full justify-center py-3 px-8 bg-green-900 rounded text-white text-lg font-semibold underline decoration-orange-700"
+          className="justify-center py-3 px-8 bg-customBlue rounded text-white text-lg font-semibold underline decoration-orange-700"
           disabled={isSubmitting}
           type="submit"
           onClick={handleSubmit}
