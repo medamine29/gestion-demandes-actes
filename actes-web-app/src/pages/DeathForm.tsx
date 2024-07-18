@@ -32,7 +32,7 @@ const DeathForm = () => {
   }
 
   return (
-    <div className="w-full md:w-4/5 lg:w-3/5 bg-white p-2 md:p-4 m-2 md:m-4">
+    <div className="w-5/6 md:w-4/5 bg-white p-2 md:p-4 m-2 md:m-4">
       <div className="text-customBlue flex flex-col">
         <div className="text-xl md:text-3xl font-bold">
           Commandez votre acte de décès en ligne { municipalityDetails?.name }
@@ -45,16 +45,26 @@ const DeathForm = () => {
         </div>
       </div>
 
-      <Stepper 
-        activeStep={activeStep}
-        styleConfig={stepperStyleConfig}
-      >
-        <Step label="Informations sur l'acte"> <FaWpforms className="text-xl" /> </Step>
-        <Step label="Adresse de réception"> <FaMapMarkerAlt className="text-xl" /> </Step>
-        <Step label="Vérification et validation"> <IoCheckmarkDoneSharp className="text-xl" /> </Step>
-      </Stepper>
+      <div className="w-full md:w-4/5 lg:w-3/5 flex flex-col items-center mx-auto">
+        <Stepper 
+          activeStep={activeStep}
+          styleConfig={stepperStyleConfig}
+        >
+          <Step label="Informations sur l'acte"> <FaWpforms className="text-xl" /> </Step>
+          <Step label="Adresse de réception"> <FaMapMarkerAlt className="text-xl" /> </Step>
+          <Step label="Vérification et validation"> <IoCheckmarkDoneSharp className="text-xl" /> </Step>
+        </Stepper>
 
-      { renderStep() }
+        { renderStep() }
+      </div>
+
+      <div className="w-full flex flex-col gap-3 mt-10 text-customBlue bg-customLightBlue p-4 rounded">
+
+        <div>
+          <b> Qu&#39;est-ce qu&#39;un acte de décès ? </b>
+        </div>
+        
+      </div>
 
     </div>
   );
