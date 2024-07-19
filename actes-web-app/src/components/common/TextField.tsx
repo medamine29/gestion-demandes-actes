@@ -63,7 +63,9 @@ const TextField: React.FC<TextFieldProps<any>> = ({ id, value, onChange, onBlur,
               <a id={`tooltip-${id.replace(".","")}`} className="right-2">
                 <FaCircleInfo className="absolute cursor-pointer text-xl text-customBlue top-1/2 transform -translate-y-1/2 right-2 opacity-70" />  
               </a>
-              <Tooltip anchorSelect={`#tooltip-${id.replace(".","")}`} place="top-end" className="z-50">
+              <Tooltip anchorSelect={`#tooltip-${id.replace(".","")}`} place="top-end" className="z-50 max-w-72"
+                
+              >
                 { info }
               </Tooltip>
             </div>
