@@ -101,39 +101,39 @@ const MarriageForm = () => {
           Le courrier doit indiquer les éléments suivants :
         </div>
 
-        <table className="min-w-full bg-white border border-gray-200">
+        <table className="min-w-full bg-white border border-gray-200 mx-auto">
           <thead>
-            <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+            <tr className="bg-gray-200 text-gray-600 text-xs md:text-base leading-normal">
               <th className="py-3 px-4 text-left">  </th>
-              <th className="py-3 px-4 text-left"> ACTE DE MARIAGE INTEGRAL </th>
-              <th className="py-3 px-4 text-left"> ACTE DE MARIAGE AVEC FILIATION </th>
-              <th className="py-3 px-4 text-left"> ACTE DE MARIAGE SANS FILIATION </th>
+              <th className="py-3 px-4 text-left"> Acte de mariage integral </th>
+              <th className="py-3 px-4 text-left"> Acte de mariage avec filiation </th>
+              <th className="py-3 px-4 text-left"> Acte de mariage sans filiation </th>
             </tr>
           </thead>
-          <tbody className="text-gray-600 text-sm font-light">
+          <tbody className="text-gray-600 text-xs md:text-base font-light">
             <tr className="border-b border-gray-200 hover:bg-gray-100">
-              <td className="py-3 px-4 text-left"> DATE DU MARIAGE </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
+              <td className="py-3 px-4 text-left"> Date du mariage </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
             </tr>
             <tr className="border-b border-gray-200 hover:bg-gray-100">
-              <td className="py-3 px-4 text-left"> NOM DE FAMILLE </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
+              <td className="py-3 px-4 text-left"> Nom de famille </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
             </tr>
             <tr className="border-b border-gray-200 hover:bg-gray-100">
-              <td className="py-3 px-4 text-left"> PRENOMS DES EPOUS </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
+              <td className="py-3 px-4 text-left"> Prénoms des epous </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
             </tr>
             <tr className="border-b border-gray-200 hover:bg-gray-100">
-              <td className="py-3 px-4 text-left"> NOMS ET PRENOMS DES PARENTS </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-green-700 font-bold text-lg"> X </td>
-              <td className="py-3 px-4 text-center text-red-700 font-bold text-lg"> X </td>
+              <td className="py-3 px-4 text-left"> Noms et prenoms des parents </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-green-700 font-bold"> X </td>
+              <td className="py-3 px-4 text-center text-red-700 font-bold"> X </td>
             </tr>
           </tbody>
         </table>

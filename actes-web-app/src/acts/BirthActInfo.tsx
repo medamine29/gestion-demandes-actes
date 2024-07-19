@@ -43,7 +43,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
   })
 
   return (  
-    <div className="flex flex-col items-center gap-2">
+    <div className="w-full flex flex-col items-center gap-2">
       <form
         onSubmit={handleSubmit}
         className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1 bg-customLightBlue p-2"
@@ -201,7 +201,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
             errors={errors}
             setFieldValue={setFieldValue}
             setFieldTouched={setFieldTouched}
-            className="col-span-2"
+            className="col-span-1 md:col-span-2"
           />
 
           <Dropdown

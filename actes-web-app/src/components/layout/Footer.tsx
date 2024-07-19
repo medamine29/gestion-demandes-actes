@@ -5,7 +5,7 @@ const Footer: React.FC<{}> = () => {
 
   return (
     <div className="w-full bg-customBlue relative flex justify-center p-4">
-      <div className="w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 text-white space-evenly font-semibold justify-items-center" >
+      <div className="w-max md:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 text-white font-semibold justify-items-start md:justify-items-center" >
         <div className="flex flex-col">
           <Link to="/acte-de-naissance" > <div className="hover:-translate-y-1 cursor-pointer"> Acte de naissance </div> </Link>
           <Link to="/acte-de-mariage" > <div className="hover:-translate-y-1 cursor-pointer"> Acte de mariage </div> </Link>
