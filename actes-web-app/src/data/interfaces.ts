@@ -12,12 +12,14 @@ export enum CivilityType {
 }
 
 export enum Relationship {
-  CONCERNED_PERSON = "La personne concernée",
-  PARENT = "Son père ou sa mère",
+  CONCERNED_PERSON = "Le titulaire de l'acte",
+  SIBLING = "Son frère ou sa soeur",
+  PARENT = "Ses parents",
   SPOUSE = "Son conjoint",
   CHILD = "Son fils ou sa fille",
-  GRAND_PARENT = "Son grand-père ou sa grand-mère",
+  GRAND_PARENT = "Ses grands parents",
   GRAND_CHILD = "Son petit-fils ou sa petite-fille",
+  UNCLE_AUNT = "Son oncle ou sa tante",
   LEGAL_REPRESENTANT = "Son représentant légal",
   HEIR = "Son héritier",
   OTHER = "Autre"
@@ -31,18 +33,18 @@ export enum ActFormat {
 }
 
 export enum RequestReason {
-  MARRIAGE_FILE = "constitution d'un dossier de mariage",
-  ID = "carte nationale d'identité",
+  MARRIAGE_FILE = "Constitution d'un dossier de mariage",
+  ID = "Carte nationale d'identité",
   PASSPORT = "Passeport",
-  SUCCSSION = "succesion",
+  SUCCSSION = "Succesion",
   SOCIAL_SECURITY_BENEFITS = "Prestations sociales",
-  RETIREMENT = "retraite",
+  RETIREMENT = "Retraite",
   PACS = "Constitution d'un dossier de PACS",
   GENEALOGY = "Généalogie (Acte de naissance à partir de 1922)",
   NATIONALITY_CERTIFICATE = "Certificat de nationalité française",
   LITIGATION = "contentieux",
   PENSION = "Pension",
-  OTHER = "autre"
+  OTHER = "Autre"
 }
 export interface Acte {
   label: string,

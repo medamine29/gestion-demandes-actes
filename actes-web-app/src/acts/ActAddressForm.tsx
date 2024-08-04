@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FormikHelpers, useFormik } from "formik";
 import { ActAddress } from "../data/interfaces.ts"
 import { birthAddressSchema } from "../data/validations.tsx";
@@ -7,9 +7,8 @@ import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import Button from "../components/common/Button.tsx";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions } from "../data/actesData.tsx";
 import Dropdown from "../components/common/DropDown.tsx";
-import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";
 import { GiMailbox } from "react-icons/gi";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaCity, FaPhone, FaMapPin } from "react-icons/fa";
@@ -144,7 +143,7 @@ const ActAddressForm: React.FC<ActAddressProps> = ({ setActiveStep }) => {
           errors={errors}
           label="Téléphone"
           placeholder="Saisir votre numéro de téléphone"
-          info="Veuillez renseigner votre numéero de téléphone"
+          info="Veuillez renseigner votre numéro de téléphone"
           labelIcon={FaPhone}
         />
 

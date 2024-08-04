@@ -55,15 +55,28 @@ export const civilityRadioGroupOptions: RadioOption[] = [
   }
 ]
 
-export const relationshipOptions: Relationship[] = [
+export const marriageActRelationshipOptions: Relationship[] = [
+  Relationship.CONCERNED_PERSON,
+  Relationship.PARENT,
+  Relationship.SIBLING,
+  Relationship.SPOUSE,
+  Relationship.CHILD,
+  Relationship.SIBLING,
+  Relationship.GRAND_PARENT,
+  Relationship.GRAND_CHILD,
+  Relationship.HEIR,
+  Relationship.LEGAL_REPRESENTANT,
+  Relationship.OTHER,
+]
+
+export const birthActRelationshipOptions: Relationship[] = [
   Relationship.CONCERNED_PERSON,
   Relationship.PARENT,
   Relationship.SPOUSE,
   Relationship.CHILD,
+  Relationship.SIBLING,
   Relationship.GRAND_PARENT,
   Relationship.GRAND_CHILD,
-  Relationship.LEGAL_REPRESENTANT,
-  Relationship.HEIR,
   Relationship.OTHER,
 ]
 
@@ -78,7 +91,7 @@ export const deathActRelationshipOptions: Relationship[] = [
   Relationship.OTHER,
 ]
 
-export const requestReasonOptions: RequestReason[] = [
+export const birthActRequestReasonOptions: RequestReason[] = [
   RequestReason.MARRIAGE_FILE,
   RequestReason.ID,
   RequestReason.PASSPORT,
@@ -98,5 +111,14 @@ export const deathActRequestReasonOptions: RequestReason[] = [
   RequestReason.SOCIAL_SECURITY_BENEFITS,
   RequestReason.LITIGATION,
   RequestReason.PENSION,
+  RequestReason.GENEALOGY,
+  RequestReason.OTHER
+]
+
+export const marriageActRequestReasonOptions: RequestReason[] = [
+  RequestReason.MARRIAGE_FILE,
+  RequestReason.SOCIAL_SECURITY_BENEFITS,
+  RequestReason.RETIREMENT,
+  RequestReason.GENEALOGY,
   RequestReason.OTHER
 ]

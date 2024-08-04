@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FormikHelpers, useFormik } from "formik";
 import { BirthInfo } from "../data/interfaces.ts"
 import { birthFormSchema } from "../data/validations.tsx";
@@ -7,7 +7,7 @@ import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import Button from "../components/common/Button.tsx";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, birthActRelationshipOptions, birthActRequestReasonOptions } from "../data/actesData.tsx";
 import DateInput from "../components/common/DateInput.tsx";
 import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
@@ -193,7 +193,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
 
           <Dropdown
             id="relationship"
-            options={relationshipOptions}
+            options={birthActRelationshipOptions}
             value={values.relationship}
             label="Vous êtes"
             placeholder="Sélectionner votre relation avec la personne concernée"
@@ -218,7 +218,7 @@ const BirthActInfo: React.FC<BirthActInfoProps> = ({ setActiveStep }) => {
 
           <Dropdown
             id="requestReason"
-            options={requestReasonOptions}
+            options={birthActRequestReasonOptions}
             value={values.requestReason}
             label="Motif de la demande"
             placeholder="Sélectionner le motif de la demande"

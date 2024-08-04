@@ -95,7 +95,7 @@ const ContactForm = () => {
           errors={errors}
           label="Téléphone"
           placeholder="Saisir votre numéro de téléphone"
-          info="Veuillez renseigner votre numéero de téléphone."
+          info="Veuillez renseigner votre numéro de téléphone."
           labelIcon={FaPhone}
         />
 

@@ -37,9 +37,8 @@ class MailService {
       `
     )
 
-    // TODO : change name provisoire
     const mailOptions = {
-      from: `"NOM PROVISOIRE" <${MAIL.SENDER_EMAIL}>`,
+      from: `"acte-de-naissance-express.fr" <${MAIL.SENDER_EMAIL}>`,
       to: actData.actAddressInfo.email,
       subject: "Demande d'acte Confirmée !",
       html: content

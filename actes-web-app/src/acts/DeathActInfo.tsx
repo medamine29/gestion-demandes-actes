@@ -9,7 +9,7 @@ import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, deathActRelationshipOptions, deathActRequestReasonOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, deathActRelationshipOptions, deathActRequestReasonOptions } from "../data/actesData.tsx";
 import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import { getActTypeOptionsByRelationship } from "../data/helpers.tsx";

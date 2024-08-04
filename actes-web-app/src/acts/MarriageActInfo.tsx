@@ -9,7 +9,7 @@ import Dropdown from "../components/common/DropDown.tsx";
 import SearchBar from "../components/common/SearchBar.tsx";
 import { TbMapPinSearch } from "react-icons/tb";
 import RadioGroup from "../components/common/RadioGroup.tsx";
-import { civilityRadioGroupOptions, relationshipOptions, requestReasonOptions } from "../data/actesData.tsx";
+import { civilityRadioGroupOptions, marriageActRelationshipOptions, marriageActRequestReasonOptions } from "../data/actesData.tsx";
 import TextField from "../components/common/TextField.tsx";
 import { CgProfile } from "react-icons/cg";
 import CheckBox from "../components/common/CheckBox.tsx"
@@ -89,7 +89,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
 
           <Dropdown
             id="relationship"
-            options={relationshipOptions}
+            options={marriageActRelationshipOptions}
             value={values.relationship}
             label="Vous êtes"
             placeholder="Sélectionner votre relation avec la personne concernée"
@@ -113,7 +113,7 @@ const MarriageActInfo: React.FC<MarriageActInfoProps> = ({ setActiveStep }) => {
 
           <Dropdown
             id="requestReason"
-            options={requestReasonOptions}
+            options={marriageActRequestReasonOptions}
             value={values.requestReason}
             label="Motif de la demande"
             placeholder="Sélectionner le motif de la demande"

@@ -51,7 +51,7 @@ const DeathForm = () => {
           styleConfig={stepperStyleConfig}
         >
           <Step label="Informations sur l'acte"> <FaWpforms className="text-xl" /> </Step>
-          <Step label="Adresse de réception"> <FaMapMarkerAlt className="text-xl" /> </Step>
+          <Step label="Adresse de livraison"> <FaMapMarkerAlt className="text-xl" /> </Step>
           <Step label="Vérification et validation"> <IoCheckmarkDoneSharp className="text-xl" /> </Step>
         </Stepper>
 

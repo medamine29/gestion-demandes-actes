@@ -14,7 +14,7 @@ const Home: React.FC<{}> = () => {
           Ne perdez plus votre temps en mairie où les temps d’attente sont très longs et les horaires d’ouverture limités.
         </div>
         <div>
-          Notre plateforme <a href="/" className="underline"> assistance-etats-civils.fr</a>  <strong> NOM PROVISOIRE </strong> vous offre la possibilité de <b> commander en ligne </b> vos actes <b> d'états civils </b> avec un focus principal sur les <strong> actes de naissances </strong>, les <strong> actes de mariage </strong> et les <strong> actes de décès </strong>.
+          Notre plateforme <a href="/" className="underline"> assistance-etats-civils.fr</a>  <strong> acte-de-naissance-express.fr </strong> vous offre la possibilité de <b> commander en ligne </b> vos actes <b> d'états civils </b> avec un focus principal sur les <strong> actes de naissances </strong>, les <strong> actes de mariage </strong> et les <strong> actes de décès </strong>.
         </div>
         <div>
           Nous vous accompagnons dans chaque étape du processus avec nos <b> formulaires intuitifs </b>.
