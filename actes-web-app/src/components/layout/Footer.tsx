@@ -12,8 +12,8 @@ const Footer: React.FC<{}> = () => {
           <Link to="/acte-de-deces" > <div className="hover:-translate-y-1 cursor-pointer"> Acte de décès </div> </Link>
         </div>
         <div className="flex flex-col">
-          <Link to="/démarche" > <div className="hover:-translate-y-1 cursor-pointer"> démarches </div> </Link>
-          <Link to="/mentions-légales" > <div className="hover:-translate-y-1 cursor-pointer"> mentions légales </div> </Link>
+          <Link to="/démarche" > <div className="hover:-translate-y-1 cursor-pointer"> Démarches </div> </Link>
+          <Link to="/mentions-légales" > <div className="hover:-translate-y-1 cursor-pointer"> Mentions légales </div> </Link>
           <Link to="/cgv" > <div className="hover:-translate-y-1 cursor-pointer"> CGV </div> </Link>
           
         </div>
