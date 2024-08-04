@@ -76,7 +76,7 @@ const BirthForm = () => {
           personnelles.
         </div>
         
-        <b> Qu&#39;est-ce qu&#39;un acte de naissance ? </b>
+        <b className="text-xl"> Qu&#39;est-ce qu&#39;un acte de naissance ? </b>
 
         <div>
           L’<b>acte de naissance</b> est un document administratif officiel délivré par l’état civil qui
@@ -101,7 +101,7 @@ const BirthForm = () => {
           de mariage ou de prestations de la Caisse d&#39;allocations familiales (CAF).
         </div>
 
-        <b> Quel document pour obtenir un extrait d&#39;acte de naissance ? </b>
+        <b className="text-xl"> Quel document pour obtenir un extrait d&#39;acte de naissance ? </b>
         
         <ul className="list-disc ml-4">
           <li> Pièce d&#39;identité valide (carte d&#39;identité, passeport) </li>
@@ -110,13 +110,13 @@ const BirthForm = () => {
           <li> Adresse postale pour l’acheminement de l&#39;acte de <b> naissance </b> </li>
         </ul>
 
-        <b> Quels sont les types d’actes de naissance ? </b>
+        <b className="text-xl"> Quels sont les types d’actes de naissance ? </b>
 
         <div> Il existe Trois types d&#39;<b>actes de naissance :</b> </div>
 
         <ol className="list-decimal ml-4">
           <li>
-            <b> La copie d&#39;acte intégral </b> : Comme son nom l&#39;indique cet acte est une
+            <b className="text-lg"> La copie d&#39;acte intégral </b> : Comme son nom l&#39;indique cet acte est une
             reproduction fidèle de votre acte d&#39;état civil. Il contient toutes les informations
             essentielles comme votre <b> nom </b> vos <b> prénoms</b>, votre jour, mois, année et <b> lieu de
             naissance </b> mais également celles de vos parents. Pour l&#39;obtenir vous pouvez
@@ -127,19 +127,19 @@ const BirthForm = () => {
             L&#39;émission de cet acte est gratuite.
           </li>
           <li>
-            <b> Extrait d&#39;acte de naissance avec filiation </b> : C&#39;est un acte de naissance qui
+            <b className="text-lg"> Extrait d&#39;acte de naissance avec filiation </b> : C&#39;est un acte de naissance qui
             contient   les informations liées à votre naissance mais aussi les <b> noms,
             prénoms </b> date et lieux de naissance de vos parents.  L&#39;émission de cet acte est
             gratuite.
           </li>
           <li>
-            <b> Extrait d&#39;acte de naissance sans filiation </b> : Cet acte contient les informations
+            <b className="text-lg"> Extrait d&#39;acte de naissance sans filiation </b> : Cet acte contient les informations
             clés sur votre naissance sans mentionner votre filiation. L&#39;émission de cet acte
             est gratuite.
           </li>
         </ol>
 
-        <div>
+        <div className="text-xl">
           <b> Puis-je obtenir un acte de naissance pour quelqu&#39;un d&#39;autre ? </b>
         </div>
 
@@ -176,7 +176,7 @@ const BirthForm = () => {
           courrier votre <b> acte de naissance </b> en quelques jours.
         </div>
 
-        <b> Les étapes pour commander un acte de naissance ? </b>
+        <b className="text-xl"> Les étapes pour commander un acte de naissance ? </b>
 
         <div>
           Besoin d&#39;un <b>acte de naissance </b> en France ? Pas de souci, plusieurs options s&#39;offrent à
@@ -225,7 +225,7 @@ const BirthForm = () => {
           est une procédure simple et rapide.
         </div>
 
-        <b> Commander un acte de naissance en ligne si vous êtes né en France : </b>
+        <b className="text-xl"> Commander un acte de naissance en ligne si vous êtes né en France : </b>
 
         <div>
           Si vous êtes né en France métropolitaine ou dans les territoires d&#39;outre-mer vous
@@ -269,7 +269,7 @@ const BirthForm = () => {
           un <b> acte de naissance, </b> afin de prouver le lien familial avec le sujet de la demande
         </div>
 
-        <b> Comment obtenir l’acte de naissance d’un français né à l’étranger ? </b>
+        <b className="text-xl"> Comment obtenir l’acte de naissance d’un français né à l’étranger ? </b>
 
         <div>
           Pour <b> obtenir l&#39;acte de naissance </b> d&#39;un Français né à l&#39;étranger (ou dans les états
@@ -304,7 +304,7 @@ const BirthForm = () => {
           directement dans votre boite aux lettres par <b> voie postale. </b>
         </div>
 
-        <b>
+        <b className="text-xl">
           Peut-on recevoir son acte d&#39;état civil par courrier électronique ?
         </b>
 
@@ -314,7 +314,7 @@ const BirthForm = () => {
           semaine.
         </div>
 
-        <b> Quelle est la validité d&#39;un acte de naissance pour les démarches administratives ? </b>
+        <b className="text-xl"> Quelle est la validité d&#39;un acte de naissance pour les démarches administratives ? </b>
 
         <div>
           En théorie, les <b> actes de naissance, </b> qu’ils s’agissent de copies intégrales ou extraits,
@@ -324,7 +324,7 @@ const BirthForm = () => {
           de 3 mois.
         </div>
 
-        <b> Comment faire une déclaration de naissance ? </b>
+        <b className="text-xl"> Comment faire une déclaration de naissance ? </b>
 
         <div>
           La naissance d&#39;un enfant en France nécessite une déclaration obligatoire permettant
@@ -344,7 +344,7 @@ const BirthForm = () => {
           également à une amende de 3750 € en cas de non-régularisation de la situation.
         </div>
 
-        <b> Peut-on corriger un acte de naissance en cas d&#39;erreur de l&#39;officier d&#39;état civil ? </b>
+        <b className="text-xl"> Peut-on corriger un acte de naissance en cas d&#39;erreur de l&#39;officier d&#39;état civil ? </b>
 
         <div>
           Si vous repérez une erreur de forme telle qu&#39;une faute d&#39;orthographe dans un <b> nom de
@@ -363,7 +363,7 @@ const BirthForm = () => {
           votre domicile ou de la ville où l&#39;acte a été rédigé.
         </div>
 
-        <b> Qu’est-ce qu’un extrait d’acte de naissance plurilingue ? </b>
+        <b className="text-xl"> Qu’est-ce qu’un extrait d’acte de naissance plurilingue ? </b>
 
         <div>
           Un <b> acte de naissance </b> plurilingue est un acte destiné aux citoyens français afin de
@@ -392,7 +392,7 @@ const BirthForm = () => {
           <li> Croate </li>
         </ul>
 
-        <b> Comment obtenir un extrait de naissance plurilingue ? </b>
+        <b className="text-xl"> Comment obtenir un extrait de naissance plurilingue ? </b>
 
         <div>
           Vous pouvez commander ce document directement en ligne sur notre site via <u> un
@@ -405,7 +405,7 @@ const BirthForm = () => {
           bénéficiant d’un <b> service public </b> de qualité.
         </div>
 
-        <b> Quelle est l&#39;utilité de la mention marginale ? : </b>
+        <b className="text-xl"> Quelle est l&#39;utilité de la mention marginale ? : </b>
 
         <div>
           Une <b> mention marginale </b> sur un <b> acte de naissance </b> est une information ajoutée à la
@@ -421,7 +421,7 @@ const BirthForm = () => {
           indispensables pour établir des liens entre différents actes.
         </div>
 
-        <b> Faire une demande d’acte de naissance pour une personne née il y a plus de 100 ans : </b>
+        <b className="text-xl"> Faire une demande d’acte de naissance pour une personne née il y a plus de 100 ans : </b>
 
         <div>
           Il n’est plus possible de se rendre à sa mairie de naissance pour demander un acte

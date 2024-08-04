@@ -68,7 +68,7 @@ const MunicipalitySearch = () => {
   
       <div className="w-full flex flex-col gap-3 mt-10 text-customBlue"> 
 
-        <div>
+        <div className="text-xl">
           <strong> Que faire en cas d’erreur sur l’acte de naissance : </strong>
         </div>
 
@@ -95,7 +95,7 @@ const MunicipalitySearch = () => {
           <b> l&#39;identité de la personne. </b>
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Double Nom de Famille à la naissance : comment ça marche ? </b>
         </div>
 
@@ -143,7 +143,7 @@ const MunicipalitySearch = () => {
           comprendre les implications et les procédures associées à cette décision.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Reconnaissance Anticipée d&#39;un Enfant : Ce Qu&#39;il Faut Savoir </b>
         </div>
 
@@ -202,7 +202,7 @@ const MunicipalitySearch = () => {
           <b> l’acte de naissance </b> ainsi que dans le <b> livret de famille. </b>
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Reconnaitre un enfant dont on n’est pas le père : </b>
         </div>
 
@@ -225,7 +225,7 @@ const MunicipalitySearch = () => {
           plusieurs milers d’euros.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Le Livret de Famille évolue : Une Réforme Nécessaire </b>
         </div>
 
@@ -245,14 +245,14 @@ const MunicipalitySearch = () => {
 
         <ul className="list-disc ml-4">
 
-          <li> Les Enfants Nés Sans Vie </li>
+          <li className="text-lg"> Les Enfants Nés Sans Vie </li>
           <div className="-ml-4">
             Les prénoms et nom d’un enfant né sans vie peuvent désormais être apposés sur le <b> livret de
             famille </b> à la demande des parents. Cette inscription, bien que sans effet juridique, permet de
             reconnaître symboliquement l’enfant.
           </div>
 
-          <li> Procréation Médicalement Assistée (PMA) </li>
+          <li className="text-lg"> Procréation Médicalement Assistée (PMA) </li>
           <div className="-ml-4">
             Pour les couples de femmes ayant recours à la PMA, la filiation est établie pour la femme qui
             accouche par sa désignation dans <b> l’acte de naissance. </b> Pour l’autre femme, la filiation est
@@ -268,7 +268,7 @@ const MunicipalitySearch = () => {
             noms accolés par ordre alphabétique.
           </div>
 
-          <li> Changement de Nom </li>
+          <li className="text-lg"> Changement de Nom </li>
           <div className="-ml-4">
             Le <b> livret de famille </b> s’adapte également aux nouvelles dispositions sur le changement de
             nom de famille, effectives à partir du 1er juillet 2022. Désormais, avec l’accord des parents,
@@ -278,7 +278,7 @@ const MunicipalitySearch = () => {
             l’autre parent. Si l’enfant a plus de 13 ans, son accord est requis.
           </div>
 
-          <li> Adoption </li>
+          <li className="text-lg"> Adoption </li>
           <div className="-ml-4">
             Enfin, les nouvelles dispositions sur l’adoption permettent désormais aux époux, partenaires
             liés par un pacte civil de solidarité (pacs) ou concubins vivant ensemble depuis plus d’un an
@@ -289,7 +289,7 @@ const MunicipalitySearch = () => {
 
         </ul>
 
-        <div>
+        <div className="text-xl">
           <b> Dématérialisation des certificats de décès : avantages et inconvénients </b>
         </div>
 
@@ -325,7 +325,7 @@ const MunicipalitySearch = () => {
           inégalités territoriales en matière de connectivité.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Quels sont les délais à respecter en cas de décès ? </b>
         </div>
 
@@ -342,7 +342,7 @@ const MunicipalitySearch = () => {
 
         <ol className="list-decimal list-inside ml-4 space-y-2">
 
-          <li> Déclaration de décès : </li>
+          <li className="text-lg"> Déclaration de décès : </li>
           <ul className="ml-2">
             <li> - Délai : 24 heures (48 heures si week-end ou jour férié) </li>
             <li> - Lieu : <b> Mairie du lieu du décès </b> ou du <b> domicile du défunt </b> </li>
@@ -350,13 +350,13 @@ const MunicipalitySearch = () => {
             <li> - Résultat : Délivrance de <b> l&#39;acte de décès </b> </li>
           </ul>
 
-          <li> Contact avec le professionnel funéraire : </li>
+          <li className="text-lg"> Contact avec le professionnel funéraire : </li>
           <ul className="ml-2">
             <li> - Si une convention obsèques est inscrite, contacter rapidement l&#39;organisme </li>
             <li> - Justification : Organisation des funérailles dans les six jours (sauf cas particuliers) </li>
           </ul>
 
-          <li> Notification à l&#39;employeur ou aux Assedic : </li>
+          <li className="text-lg"> Notification à l&#39;employeur ou aux Assedic : </li>
           <ul className="ml-2">
             <li> - Délai : 48 heures </li>
             <li> - Concerne : Défunt salarié ou indemnisé </li>
@@ -364,13 +364,13 @@ const MunicipalitySearch = () => {
 
           <div className="-ml-4"> Démarches à court terme (une semaine) </div>
 
-          <li> Contact avec le notaire : </li>
+          <li className="text-lg"> Contact avec le notaire : </li>
           <ul className="ml-2">
             <li> - Rôle : Gestion de la succession </li>
             <li> - Données à fournir : Informations sur le patrimoine du défunt </li>
           </ul>
 
-          <li> Information à la banque : </li>
+          <li className="text-lg"> Information à la banque : </li>
           <ul className="ml-2">
             <li> - Action : Blocage du compte du défunt </li>
             <li> - Justification : Protection des avoirs et préparation de la succession </li>
@@ -378,7 +378,7 @@ const MunicipalitySearch = () => {
 
           <div className="-ml-4"> Démarches à moyen terme (15 jours) </div>
 
-          <li> Notifications diverses : </li>
+          <li className="text-lg"> Notifications diverses : </li>
           <ul className="ml-2">
             <li> - Assurances et mutuelles </li>
             <li> - Retraite complémentaire </li>
@@ -388,7 +388,7 @@ const MunicipalitySearch = () => {
 
         </ol>
 
-        <div> Points particuliers à noter </div>
+        <div className="text-lg"> Points particuliers à noter </div>
 
         <ul>
           <li> - La rapidité est essentielle pour compléter ces formalités dans les temps. </li>
@@ -404,7 +404,7 @@ const MunicipalitySearch = () => {
           cette période difficile avec plus de sérénité.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Le certificat d&#39;hérédité : un outil méconnu mais précieux pour les successions modestes </b>
         </div>
 
@@ -460,7 +460,7 @@ const MunicipalitySearch = () => {
           : honorer la mémoire du défunt et commencer le processus de deuil.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> L’acte de notoriété : qu’est-ce c’est ? </b>
         </div>
 
@@ -511,7 +511,7 @@ const MunicipalitySearch = () => {
           des droits du défunt.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Pour quelles raison un prénom peut être refusé à L’état Civil ? </b>
         </div>
 
@@ -566,7 +566,7 @@ const MunicipalitySearch = () => {
           l’enfant et respecter les normes sociétales et linguistiques.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Papiers d’Identité : Pourquoi est-ce si long ? </b>
         </div>
 
@@ -622,7 +622,7 @@ const MunicipalitySearch = () => {
           surtout avant les périodes de forte demande comme les vacances d’été.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Refaire ses papiers d’identité avant les vacances d’été : </b>
         </div>
 
@@ -703,7 +703,7 @@ const MunicipalitySearch = () => {
           d’avoir ses documents à jour avant les grandes vacances.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Que faire en cas de Vol de passeport : </b>
         </div>
 

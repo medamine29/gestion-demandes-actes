@@ -60,7 +60,7 @@ const DeathForm = () => {
 
       <div className="w-full flex flex-col gap-3 mt-10 text-customBlue bg-customLightBlue p-4 rounded">
 
-        <div>
+        <div className="text-xl">
           <b> Qu&#39;est-ce qu&#39;un acte de décès ? </b>
         </div>
         
@@ -79,7 +79,7 @@ const DeathForm = () => {
           demande.
         </div>
 
-        <div> <b> Obtenir un acte de décès en France : </b> </div>
+        <div className="text-xl"> <b> Obtenir un acte de décès en France : </b> </div>
 
         <div>
           Pour obtenir un <b> acte de décès survenu en France, </b> il faut généralement s&#39;adresser à
@@ -88,7 +88,7 @@ const DeathForm = () => {
           de traitement peuvent varier en fonction des services administratifs.
         </div>
 
-        <div> <b> Décès de Français nés à l&#39;étranger : </b> </div>
+        <div className="text-xl"> <b> Décès de Français nés à l&#39;étranger : </b> </div>
 
         <div>
           Si le décès concerne une personne de <b> nationalité Française née à l&#39;étranger, </b> vous
@@ -97,7 +97,7 @@ const DeathForm = () => {
           Le <b> délai d&#39;acheminement du courrier </b> est d&#39;environ <b> 20 jours. </b>
         </div>
 
-        <div> <b> Quelles sont les mentions apposées sur la copie intégrale d&#39;un acte de décès : </b> </div>
+        <div className="text-xl"> <b> Quelles sont les mentions apposées sur la copie intégrale d&#39;un acte de décès : </b> </div>
 
         <div> <b> La copie intégrale </b> d&#39;un <b> acte de décès </b> contient des informations essentielles telles que </div>
 
@@ -114,7 +114,7 @@ const DeathForm = () => {
 
         <div> Le décès est également intégré en marge de l&#39;<b>acte de naissance du défunt</b> </div>
 
-        <div> <b> Procédure en cas de décès à l&#39;étranger : </b> </div>
+        <div className="text-xl"> <b> Procédure en cas de décès à l&#39;étranger : </b> </div>
 
         <div>
           Si la disparition d&#39;un proche survient à l&#39;étranger, lors d&#39;un voyage par exemple, il est
@@ -126,17 +126,17 @@ const DeathForm = () => {
           établira un acte de décès à retranscrire auprès des autorité Française.
         </div>
 
-        <div> <b> Un acte de décès pour quelles démarches ? : </b> </div>
+        <div className="text-xl"> <b> Un acte de décès pour quelles démarches ? : </b> </div>
 
         <ol className="list-decimal ml-4">
           <li>
-            La succession : Lors de la perte d’un proche, les héritiers sont tenus de suivre
+            <b className="text-lg"> La succession :</b> Lors de la perte d’un proche, les héritiers sont tenus de suivre
             une procédure rigoureuse dictée par le notaire. La présentation de la <b> copie
             intégrale de l&#39;acte de décès </b> accompagnée d&#39;autres documents tels que
             le <b> livret de famille, </b> déclenche l&#39;ouverture de la succession
           </li>
-          <li>
-            Les démarches auprès des institutionnels et des administrations : Un courrier,
+          <li className="text-lg">
+            <b> Les démarches auprès des institutionnels et des administrations : </b>Un courrier,
             accompagné de la copie de l&#39;acte de décès, doit être envoyé à diverses
             institutions pour leur faire part de l’évènement survenu.
           </li>
@@ -153,7 +153,7 @@ const DeathForm = () => {
           <li> les caisses de retraite, l&#39;assurance vieillesse de la sécurité sociale, ainsi que le bailleur ou le locataire selon les cas. </li>
         </ul>
 
-        <div>
+        <div className="text-xl">
           <b> Quelle est la différence entre une déclaration de décès et un acte de décès ? </b>
         </div>
 
@@ -172,13 +172,13 @@ const DeathForm = () => {
         </div>
 
         <div>
-          <b> Comment vérifier l&#39;authenticité d&#39;un acte de décès remis par un tiers en France ? </b> <br/>
+          <b className="text-xl"> Comment vérifier l&#39;authenticité d&#39;un acte de décès remis par un tiers en France ? </b> <br/>
           Pour authentifier l&#39;acte qui vous a été remis, il est essentiel de vous rapprocher de la
           mairie qui l&#39;a établi. En vérifiant les registres d&#39;<b>état civil,</b> vous pourrez confirmer la
           validité du document.
         </div>
 
-        <div> <b> Comment obtenir un acte de décès plurilingue ? </b> </div>
+        <div className="text-xl"> <b> Comment obtenir un acte de décès plurilingue ? </b> </div>
 
         <div>
           Destiné à être utilisé à l&#39;étranger, l&#39;<b>extrait plurilingue</b> concerne les pays signataires de

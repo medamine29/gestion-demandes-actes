@@ -60,7 +60,7 @@ const MarriageForm = () => {
 
       <div className="w-full flex flex-col gap-3 mt-10 text-customBlue bg-customLightBlue p-4 rounded">
 
-        <div>
+        <div className="text-xl">
           <b> A quoi sert un acte de mariage ? </b>
         </div>
 
@@ -73,7 +73,7 @@ const MarriageForm = () => {
           conjoints.
         </div>
 
-        <b> Comment demander un acte de mariage ? </b>
+        <b className="text-xl"> Comment demander un acte de mariage ? </b>
 
         <div>
           Avant toute chose soyez vigilants sur les délais de traitement qui peuvent varier en
@@ -154,12 +154,12 @@ const MarriageForm = () => {
           votre part.
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Existent-ils différents types d’acte de mariage ? </b>
         </div>
 
         <ul className="ml-4 list-disc">
-          <li> <b> La demande de copie intégrale d’acte de mariage : </b> </li>
+          <li> <b className="text-lg"> La demande de copie intégrale d’acte de mariage : </b> </li>
           <div>
             La copie intégrale d’acte de mariage reproduit fidèlement toutes les données
             consignées dans l’acte de mariage original, telles qu’elles sont enregistrées sur le
@@ -183,7 +183,7 @@ const MarriageForm = () => {
             de mariage, délivrée par les autorités communales compétentes en matière de
             documents administratifs.
           </div>
-          <li> <b> L’extrait avec filiation : </b> Obtenir une synthèse détaillée de votre acte de mariage </li>
+          <li> <b className="text-lg"> L’extrait avec filiation : </b> Obtenir une synthèse détaillée de votre acte de mariage </li>
           <div>
             L&#39;<b>extrait avec filiation</b> représente une version condensée mais exhaustive de l&#39;acte
             de mariage original Il comporte les informations essentielles telles que les mentions
@@ -198,7 +198,7 @@ const MarriageForm = () => {
             Vous pouvez obtenir facticement l’extrait avec filiation auprès des autorités
             compétentes en matière de délivrance de documents administratifs.
           </div>
-          <li> <b> L’extrait sans filiation : </b> </li>
+          <li> <b className="text-lg"> L’extrait sans filiation : </b> </li>
           <div>
             Il s’agit d’une synthèse de l’acte de mariage sans mentionner les parents respectifs
             des époux. En revanche il contient toujours les noms, prénoms date et lieux de
@@ -232,7 +232,7 @@ const MarriageForm = () => {
           </div>
         </ul>
 
-        <div>
+        <div className="text-xl">
           <b> Acte de mariage si le mariage a eu lieu à l’étranger : </b>
         </div>
 
@@ -296,12 +296,12 @@ const MarriageForm = () => {
           44941 NANTES CEDEX 9 <br/>
         </div>
 
-        <div>
+        <div className="text-xl">
           <b> Quelles démarches après un mariage civil : </b>
         </div>
 
         <ul className="ml-4">
-          <li> - <b> Le Livret de Famille </b> : Premier Document des Jeunes Mariés </li>
+          <li> - <b className="text-lg"> Le Livret de Famille </b> : Premier Document des Jeunes Mariés </li>
           <div>
             Se marier implique une série de démarches administratives pour officialiser votre
             nouveau statut marital. Dès le jour de votre union en mairie, vous recevrez un livret
@@ -311,7 +311,7 @@ const MarriageForm = () => {
             précieusement, car il sera utile pour des démarches telles que l’inscription des
             enfants à l’école, les voyages à l’étranger, ou encore l’achat d’un bien immobilier.
           </div>
-          <li> - <b> L&#39;Acte de Mariage </b> : Document Indispensable </li>
+          <li> - <b className="text-lg"> L&#39;Acte de Mariage </b> : Document Indispensable </li>
           <div>
             L’acte de mariage est un document officiel attestant de votre union civile. Il est délivré
             par la mairie où le mariage a été célébré. Ce document contient des informations
@@ -354,7 +354,7 @@ const MarriageForm = () => {
           </div>
         </ul>
 
-        <div>
+        <div className="text-xl">
           <b> Qu’est-ce qu’un extrait d’acte de mariage plurilingue ? </b>
         </div>
 
