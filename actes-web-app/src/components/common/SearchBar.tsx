@@ -64,7 +64,7 @@ const SearchBar: React.FC<SearchBarProps<any>> = ({ id, value, touched, errors, 
 
   // classes
   const inputContainerClasses = twMerge(
-    classNames('w-full relative flex flex-col bg-white min-h-12 rounded p-1', {
+    classNames('w-full relative flex flex-col bg-white min-h-12 rounded px-1 py-1.5', {
       'border border-red-700': errors && errors[id] && touched && touched[id]
     })
   );

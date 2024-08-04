@@ -32,7 +32,7 @@ const DeathForm = () => {
   }
 
   return (
-    <div className="w-5/6 md:w-4/5 bg-white p-2 md:p-4 m-2 md:m-4">
+    <div className="md:w-4/5 bg-white p-2 md:p-4 m-2 md:m-4">
       <div className="text-customBlue flex flex-col">
         <div className="text-xl md:text-3xl font-bold">
           Commandez votre acte de décès en ligne { municipalityDetails?.name }

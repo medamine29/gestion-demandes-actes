@@ -42,10 +42,10 @@ const DeathActInfo: React.FC<DeathActInfoProps> = ({ setActiveStep }) => {
   })
 
   return (  
-    <div className="flex flex-col items-center gap-2 bg-customLightBlue p-2">
+    <div className="w-full flex flex-col items-center gap-2 bg-customLightBlue">
       <form
         onSubmit={handleSubmit}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 items-center items-stretch p-1"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-1.5 items-center items-stretch p-2"
       >
         
         <div className="col-span-1 md:col-span-2">
